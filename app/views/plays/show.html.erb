@@ -1,0 +1,8 @@
+<h1><%= @play.title %></h1>
+<h2><%= @play.type_of_show %></h2>
+
+<ul>
+  <% @roles.each do |role| %>
+    <li><%= role.character_name %></li>
+  <% end %>
+</ul>
