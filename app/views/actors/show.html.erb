@@ -1,0 +1,96 @@
+<div class="actorwrap">
+    <div class="headshot">
+        <img src="#">
+        <h2><i class="fa fa-picture-o"></i> Edit Headshot</h2>
+    </div>
+    <div class="resume">
+        <div class="first">
+            <h1><%= @actor.first_name %> <%= @actor.last_name %><p><i class="fa fa-pencil-square-o"></i> Edit Profile</p></h1>
+            <div class="contact">
+                <ul>
+                    <li>Grey Talent</li>
+                    <li><%= @actor.email %></li>
+                    <li>(386) 801-5016</li>
+                </ul>
+            </div>
+            <table class="stats">
+                <h2 class="eq"><i class='fa <%= @actor.star %>'></i> <%= @actor.equity %></h2>
+                <tr>
+                    <td>Height</td>
+                    <td><%= @actor.height %></td>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td><%= @actor.weight %></td>
+                </tr>
+                <tr>
+                    <td>Vocal Range</td>
+                    <td><%= @actor.vocal_range %></td>
+                </tr>
+            </table>
+        </div>
+
+
+
+        <div class="clearfix"></div>
+        <div class="role">
+            <h2><i class="fa fa-plus-circle"></i> Add a Role</h2>
+            <div class="role_add">
+                <ul>
+                    <li>
+                        <fieldset>
+                            <legend>Show</legend>
+                            <input type="text" autofocus="true"></input>
+                        </fieldset>
+                    </li>
+                    <li>
+                        <fieldset>
+                            <legend>Role</legend>
+                            <input type="text"></input>
+                        </fieldset>
+                    </li>
+                    <li>
+                        <fieldset>
+                            <legend>Theatre</legend>
+                            <input type="text"></input>
+                        </fieldset>
+                    </li>
+                    <li>
+                        <fieldset>
+                            <legend>City</legend>
+                            <input type="text"></input>
+                        </fieldset>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="resume_list">
+            <table>
+                <tr>
+                    <td>How to Succeed...</td>
+                    <td>J. Pierrepont Finch</td>
+                    <td>Porchlight Music Theatre <i class="fa fa-angle-right"></i></td>
+                    <td>Chicago, IL</td>
+                </tr>
+                <tr>
+                    <td>25th Annual Putnam County Spelling Bee</td>
+                    <td>Leif Coneybear</td>
+                    <td>Griffin Theatre <i class="fa fa-angle-right"></i></td>
+                    <td>Chicago, IL</td>
+                </tr>
+                <tr>
+                    <td>Brigadoon</td>
+                    <td>Tommy Albright</td>
+                    <td>Light Opera Works <i class="fa fa-angle-right"></i></td>
+                    <td>Chicago, IL</td>
+                </tr>
+                <tr>
+                    <td>Rent</td>
+                    <td>Mark Cohen</td>
+                    <td>Paramount Theatre <i class="fa fa-angle-right"></i></td>
+                    <td>Chicago, IL</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

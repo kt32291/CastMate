@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414180231) do
+ActiveRecord::Schema.define(version: 20140506194152) do
+
+  create_table "jobs", force: true do |t|
+    t.integer  "role_id"
+    t.integer  "theatre_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "plays", force: true do |t|
     t.string   "title"
@@ -20,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140414180231) do
     t.string   "music_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "publix"
   end
 
   create_table "roles", force: true do |t|
@@ -27,6 +36,38 @@ ActiveRecord::Schema.define(version: 20140414180231) do
     t.integer  "play_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "publix"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "equity"
+    t.string   "gender"
+    t.integer  "height"
+    t.integer  "weight"
+    t.string   "hair"
+    t.string   "eyes"
+    t.string   "vocal_range"
+    t.string   "headshot"
+    t.string   "resume"
+    t.string   "theatre"
+    t.integer  "theatre_id"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

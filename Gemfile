@@ -17,6 +17,10 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'nokogiri'
 
+gem 'angularjs-rails'
+
+gem 'devise'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

@@ -12,5 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require angular
+//= require ngTextcomplete
+//= require ./client/app
+//= require_tree ./client/
 //= require turbolinks
-//= require_tree .
+//=# require_tree .
+
+$(function() {
+
+    $('.role h2').click(function () {
+      $('.role_add').slideToggle();
+      $('.fa-plus-circle').toggleClass("fa-chevron-circle-up");
+    });
+
+});

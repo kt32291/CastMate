@@ -1,0 +1,165 @@
+@import "library";
+
+.actorwrap {
+  // @include bg-size;
+  // background: white;
+  // background-position: cover;
+  margin: 0 auto;
+  width: 960px;
+  padding: 30px 0px;
+  .headshot {
+    @include columnify(3);
+    float: left;
+    img {
+      width: inherit;
+      border: 2px solid $dark_blue;
+    }
+    h2 {
+      font-size: 14pt;
+    }
+  }
+  .resume {
+    @include columnify(9, true);
+    float: left;
+    .first {
+      clear: left;
+      p {
+        display: inline;
+        margin-left: 15px;
+        font-size: 14pt;
+        font-weight: normal;
+        text-transform: none;
+      }
+    }
+    h1 {
+      float: left;
+      font-size: 28pt;
+      line-height: normal;
+      padding: 0px;
+      text-transform: uppercase;
+      font-weight: lighter;
+      margin-bottom: 20px;
+      margin-top: 0px;
+      border-radius: 5px;
+    }
+    h2 {
+      font-size: 16pt;
+      width: 200px;
+      margin-right: 0px;
+      margin-bottom: 15px;
+    }
+    table.stats {
+      float: left;
+      width: 28%;
+      tr {
+        border: none;
+        td {
+          text-align: right;
+          font-size: 13pt;
+          line-height: 30px;
+          &:nth-of-type(1) {
+            font-weight: bold;
+            text-align: left;
+          }
+        }
+      }
+    }
+    .contact {
+      float: right;
+      text-align: right;
+      margin-top: 6px;
+      h2 {
+        font-weight: bold;
+      }
+      ul {
+        li {
+          list-style-type: none;
+        }
+      }
+    }
+    .role {
+      margin-top: 60px;
+      border-bottom: 1px solid lightgray;
+      h2 {
+        cursor: pointer;
+        i {
+          color: gray;
+        }
+        &:hover {
+          font-weight: bold;
+        }
+      }
+      .role_add {
+        display: none;
+        margin-bottom: 20px;
+        ul {
+          margin: 0px;
+          padding-left: 0px;
+          li {
+            &:nth-of-type(1) {
+              width: 41%;
+            }
+            &:nth-of-type(2) {
+              width: 24%;
+            }
+            &:nth-of-type(3) {
+              width: 21%;
+            }
+            &:nth-of-type(4) {
+              width: 12.5%;
+            }
+            display: inline-block;
+            fieldset {
+              border: 1px solid lightgray;
+              margin-right: 3px;
+              padding: 0px;
+              &:nth-of-type(4) {
+                margin-right: 0px;
+              }
+              legend {
+                margin-left: 10px;
+                font-size: 10pt;
+              }
+              input {
+                width: 92%;
+                font-size: 10pt;
+                border: none;
+                border-width: 0;
+                outline-width: 0;
+                margin-left: 5px;
+                margin-bottom: 5px;              }
+            }
+          }
+        }
+      }
+    }
+    .resume_list {
+      margin-top: 15px;
+      table {
+        width: 100%;
+        font-size: 10pt;
+        tr {
+          line-height: 40px;
+          border: none;
+          td {
+            line-height: 40px;
+            &:nth-of-type(3) {
+              text-align: right;
+            }
+            &:nth-of-type(4) {
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+.clearfix {
+  content: "";
+  height: 100px;
+}

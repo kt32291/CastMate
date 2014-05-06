@@ -1,7 +1,9 @@
 RoleFinder::Application.routes.draw do
 
+  devise_for :users
   root 'plays#index'
 
+  resources :actors, only: [:show]
   resources :plays, only: [:show, :index, :create, :update, :destroy]
   resources :roles, only: [:create, :update, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
