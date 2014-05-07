@@ -7,9 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-# Play.destroy_all
+jobs = [
+  { user_id: 1, role_id: 9276, theatre_id: 3},
+  { user_id: 1, role_id: 8093, theatre_id: 15},
+  { user_id: 1, role_id: 7647, theatre_id: 17},
+  { user_id: 1, role_id: 7703, theatre_id: 35}
+]
 
-# Role.destroy_all
 
-
-
+jobs.each do |job|
+  j = Job.new
+  j.user_id = job[:user_id]
+  j.role_id = job[:role_id]
+  j.theatre_id = job[:theatre_id]
+  j.save
+end

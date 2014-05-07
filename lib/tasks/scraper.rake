@@ -105,4 +105,61 @@ array_of_show_ids.each { |show_id|
 
   }
   end
+
+  desc "Scrape Theatres"
+  task :scrape_theatres => :environment do
+
+    # array of search pages
+    array = [0, 9, 18, 27, 36, 45, 54, 63, 72, 81, 90, 99, 108]
+
+    array.each { |search_num|
+
+    # 1) set url and number of listings
+    url = "http://www.chicagoplays.com/component/theatre/?view=searchlist&start=#{search_num}"
+    page = Nokogiri::HTML(open(url))
+    listings_on_page = page.css('div.theatreListingText')
+    number_of_listings_on_page = listings_on_page.count
+
+    #2) create array of each listing id
+    stupid_array = Array.new(number_of_listings_on_page, "bar")
+    array_of_listing_ids = Array.new
+    stupid_array.each_index { |x| array_of_listing_ids.push(x) }
+
+    #3) cycle through listings
+    array_of_listing_ids.each { |listing_id|
+
+    listing = page.css('div.theatreListingText')[listing_id]
+
+    number_of_divs = listing.css('div').count
+    name = listing.css('h1').text
+
+    if listing.css('div').css('b')
+        theatre_type = listing.css('div').css('b').text
+      if theatre_type == ""
+        theatre_type = nil
+      end
+    end
+
+
+    city = "Chicago, IL"
+
+      {
+        :name => name,
+        :theatre_type => theatre_type,
+        :city => city
+      }
+
+    theatre = Theatre.new(:name => name, :theatre_type => theatre_type, :city => city)
+
+    if theatre.save
+      puts theatre.name
+    end
+
+    puts "****************"
+
+    }
+
+    }
+
+  end
 end

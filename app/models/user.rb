@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :jobs
+  has_many :roles, through: :jobs
+
   def star
     equity_star = 'fa-star'
     emc_star = 'fa-star-half-o'

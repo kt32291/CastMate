@@ -1,6 +1,6 @@
 <div class="actorwrap">
     <div class="headshot">
-        <img src="#">
+        <%= image_tag "katie.jpg" %>
         <h2><i class="fa fa-picture-o"></i> Edit Headshot</h2>
     </div>
     <div class="resume">
@@ -66,30 +66,17 @@
         </div>
         <div class="resume_list">
             <table>
+              <% @jobs.each do |job| %>
+              <% role = job.role %>
+              <% play = role.play %>
+              <% theatre = job.theatre %>
                 <tr>
-                    <td>How to Succeed...</td>
-                    <td>J. Pierrepont Finch</td>
-                    <td>Porchlight Music Theatre <i class="fa fa-angle-right"></i></td>
-                    <td>Chicago, IL</td>
+                    <td><%= play.title %></td>
+                    <td><%= role.character_name %></td>
+                    <td><%= theatre.name %> <i class="fa fa-angle-right"></i></td>
+                    <td><%= theatre.city %></td>
                 </tr>
-                <tr>
-                    <td>25th Annual Putnam County Spelling Bee</td>
-                    <td>Leif Coneybear</td>
-                    <td>Griffin Theatre <i class="fa fa-angle-right"></i></td>
-                    <td>Chicago, IL</td>
-                </tr>
-                <tr>
-                    <td>Brigadoon</td>
-                    <td>Tommy Albright</td>
-                    <td>Light Opera Works <i class="fa fa-angle-right"></i></td>
-                    <td>Chicago, IL</td>
-                </tr>
-                <tr>
-                    <td>Rent</td>
-                    <td>Mark Cohen</td>
-                    <td>Paramount Theatre <i class="fa fa-angle-right"></i></td>
-                    <td>Chicago, IL</td>
-                </tr>
+                <% end %>
             </table>
         </div>
     </div>
