@@ -24,6 +24,13 @@
         <li><%= link_to "Sign In", new_user_session_path %></li>
       <% end %>
     </ul>
+    <% if user_signed_in? %>
+    <% @user = current_user %>
+        <ul class="logged_in">
+          <li><%= image_tag "katiethumbnail.jpg" %></li>
+          <li>Hello, <span><%= @user.first_name %></span></li>
+        </ul>
+    <% end %>
   </div>
 
   <p class="notice"><%= notice %></p>

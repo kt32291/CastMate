@@ -2,10 +2,8 @@ class PlaysController < ApplicationController
   before_action :set_play, only: [:show, :update, :destroy]
 
   def index
-    @plays = Play.all.order('title')
-    @musicals = Play.where(type_of_show: "Musical")
-    @straight_plays = Play.where(type_of_show: "Play")
-    @operas = Play.where(type_of_show: "Opera")
+    @plays = Play.order(:title).where("title like ?", "%#{params[:term]}%")
+    render json: @plays.map(&:title)
   end
 
   def show

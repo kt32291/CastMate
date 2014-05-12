@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require angular
 //= require ngTextcomplete
+//= require angucomplete
 //= require ./client/app
 //= require_tree ./client/
 //= require turbolinks

@@ -4,6 +4,13 @@
         <h2><i class="fa fa-picture-o"></i> Edit Headshot</h2>
     </div>
     <div class="resume">
+        <div ng-controller="PlaysController" class="angu">
+         <angucomplete id="ex1" placeholder="Search shows" pause="100" selectedobject="selectedShow" localdata="plays" searchfields="title" titlefield="title" minlength="1" />
+         <div ng-show="selectedShow" class="angu">
+            {{ selectedShow.originalObject.title }}
+         </div>
+        </div>
+
         <div class="first">
             <h1><%= @actor.first_name %> <%= @actor.last_name %><p><i class="fa fa-pencil-square-o"></i> Edit Profile</p></h1>
             <div class="contact">
@@ -36,11 +43,12 @@
         <div class="role">
             <h2><i class="fa fa-plus-circle"></i> Add a Role</h2>
             <div class="role_add">
+                <%= form_for(@job) do |j| %>
                 <ul>
                     <li>
                         <fieldset>
                             <legend>Show</legend>
-                            <input type="text" autofocus="true"></input>
+                            <input type="text"></input>
                         </fieldset>
                     </li>
                     <li>
@@ -62,6 +70,7 @@
                         </fieldset>
                     </li>
                 </ul>
+                <% end %>
             </div>
         </div>
         <div class="resume_list">
