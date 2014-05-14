@@ -4,19 +4,7 @@
         <h2><i class="fa fa-picture-o"></i> Edit Headshot</h2>
     </div>
     <div class="resume">
-        <div ng-controller="PlaysController" class="angu">
-         <angucomplete
-                id="ex1"
-                placeholder="Search shows"
-                pause="100"
-                selectedobject="selectedShow"
-                localdata="plays"
-                searchfields="title"
-                titlefield="title"
-                minlength="1"
-                inputclass="form-control form-control-small"/>
-            <span class="boop" ng-show="selectedShow">{{selectedShow.originalObject.title}}</span>
-        </div>
+
 
         <div class="first">
             <h1><%= @actor.first_name %> <%= @actor.last_name %><p><i class="fa fa-pencil-square-o"></i> Edit Profile</p></h1>
@@ -55,13 +43,37 @@
                     <li>
                         <fieldset>
                             <legend>Show</legend>
-                            <input type="text"></input>
+                            <div ng-controller="PlaysController" class="angu">
+                                <angucomplete
+                                        id="ex1"
+                                        placeholder="Search shows"
+                                        pause="100"
+                                        selectedobject="selectedPlay"
+                                        localdata="plays"
+                                        searchfields="title"
+                                        titlefield="title"
+                                        descriptionfield="type_of_show"
+                                        minlength="3"
+                                        inputclass="form-control form-control-small"/>
+                            </div>
                         </fieldset>
                     </li>
                     <li>
                         <fieldset>
                             <legend>Role</legend>
-                            <input type="text"></input>
+                            <div ng-controller="RolesController" class="angu">
+                                <angucomplete
+                                        id="ex2"
+                                        placeholder="Search roles"
+                                        pause="400"
+                                        selectedobject="selectedRole"
+                                        localdata="roles"
+                                        searchfields="character_name"
+                                        titlefield="character_name"
+                                        descriptionfield="play_id"
+                                        minlength="4"
+                                        inputclass="form-control form-control-small"/>
+                            </div>
                         </fieldset>
                     </li>
                     <li>

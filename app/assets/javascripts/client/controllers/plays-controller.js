@@ -1,10 +1,14 @@
 app.controller('PlaysController', ['$scope', '$http',
   function PlaysController($scope, $http) {
-    $scope.plays = [
-      {id: 1, title: "Rent"},
-      {id: 2, title: "Wicked"},
-      {id: 3, title: "Fiddler on the Roof"}
-    ];
+    $scope.plays = [];
+
+    $http.get('/json_plays').success(function (data) {
+            $scope.plays = data;
+         })
+         .error(function (data, status, headers, config) {
+             //  Do some error handling here
+         });
+
   }
 ]);
 

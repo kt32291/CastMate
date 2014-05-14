@@ -3,7 +3,7 @@ class PlaysController < ApplicationController
 
   def index
     @plays = Play.order(:title).where("title like ?", "%#{params[:term]}%")
-    render json: @plays.map(&:title)
+    render json: @plays.map()
   end
 
   def show

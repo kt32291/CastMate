@@ -1,12 +1,13 @@
 RoleFinder::Application.routes.draw do
 
   devise_for :users
-  root 'plays#index'
+  get 'json_plays' => 'plays#index'
+  get 'json_roles' => 'roles#index'
 
   resources :actors, only: [:show]
   resources :jobs
   resources :plays, only: [:show, :index, :create, :update, :destroy]
-  resources :roles, only: [:create, :update, :destroy]
+  resources :roles, only: [:index, :create, :update, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

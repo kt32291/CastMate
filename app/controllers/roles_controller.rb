@@ -1,6 +1,11 @@
 class RolesController < ApplicationController
   before_action :set_role, only: [:update, :destroy]
 
+  def index
+    @roles = Role.order(:character_name).where("character_name like ?", "%#{params[:term]}%")
+    render json: @roles.map()
+  end
+
   def create
     @role = Role.new(role_params)
     @role.save
