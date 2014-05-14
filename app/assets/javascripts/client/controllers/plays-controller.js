@@ -9,6 +9,24 @@ app.controller('PlaysController', ['$scope', '$http',
              //  Do some error handling here
          });
 
+    $scope.roles = [];
+
+    $http.get('/json_roles').success(function (data) {
+            $scope.roles = data;
+         })
+         .error(function (data, status, headers, config) {
+             //  Do some error handling here
+         });
+
+    $scope.theatres = [];
+
+    $http.get('/json_theatres').success(function (data) {
+            $scope.theatres = data;
+         })
+         .error(function (data, status, headers, config) {
+             //  Do some error handling here
+         });
+
   }
 ]);
 

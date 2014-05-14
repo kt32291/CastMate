@@ -1,0 +1,17 @@
+              <% jobs.each do |job| %>
+              <% role = job.role %>
+              <% play = role.play %>
+              <% theatre = job.theatre %>
+                <tr>
+                    <td><%= play.title %></td>
+                    <td><%= role.character_name %></td>
+                    <% if theatre != nil %>
+                    <td><%= theatre.name %> <i class="fa fa-angle-right"></i></td>
+                    <td><%= theatre.city %></td>
+                    <% else %>
+                    <td></td>
+                    <td></td>
+                    <% end %>
+                </tr>
+                <% end %>
+

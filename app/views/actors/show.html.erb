@@ -35,17 +35,17 @@
 
 
         <div class="clearfix"></div>
-        <div class="role">
+        <div ng-controller="PlaysController" class="role">
             <h2><i class="fa fa-plus-circle"></i> Add a Role</h2>
             <div class="role_add">
-                <%= form_for(@job) do |j| %>
+                <%= form_for(@job, remote: true) do |j| %>
                 <ul>
                     <li>
                         <fieldset>
                             <legend>Show</legend>
-                            <div ng-controller="PlaysController" class="angu">
+                            <div class="angu">
                                 <angucomplete
-                                        id="ex1"
+                                        id="plays"
                                         placeholder="Search shows"
                                         pause="100"
                                         selectedobject="selectedPlay"
@@ -61,16 +61,16 @@
                     <li>
                         <fieldset>
                             <legend>Role</legend>
-                            <div ng-controller="RolesController" class="angu">
+                            <div class="angu">
                                 <angucomplete
-                                        id="ex2"
+                                        id="roles"
                                         placeholder="Search roles"
                                         pause="400"
                                         selectedobject="selectedRole"
                                         localdata="roles"
                                         searchfields="character_name"
                                         titlefield="character_name"
-                                        descriptionfield="play_id"
+                                        descriptionfield= "play_id"
                                         minlength="4"
                                         inputclass="form-control form-control-small"/>
                             </div>
@@ -79,7 +79,19 @@
                     <li>
                         <fieldset>
                             <legend>Theatre</legend>
-                            <input type="text"></input>
+                            <div class="angu">
+                                <angucomplete
+                                        id="theatres"
+                                        placeholder="Search theatres"
+                                        pause="400"
+                                        selectedobject="selectedTheatre"
+                                        localdata="theatres"
+                                        searchfields="name"
+                                        titlefield="name"
+                                        descriptionfield= "theatre_type"
+                                        minlength="3"
+                                        inputclass="form-control form-control-small"/>
+                            </div>
                         </fieldset>
                     </li>
                     <li>
@@ -89,22 +101,17 @@
                         </fieldset>
                     </li>
                 </ul>
+                <div class="boop" ng-show="selectedRole">
+                    <input type="hidden" name="role_id" value="{{selectedRole.originalObject.id}}">
+                    <input type="hidden" name="theatre_id" value="{{selectedTheatre.originalObject.id}}">
+                </div>
+                <%= j.submit %>
                 <% end %>
             </div>
         </div>
         <div class="resume_list">
-            <table>
-              <% @jobs.each do |job| %>
-              <% role = job.role %>
-              <% play = role.play %>
-              <% theatre = job.theatre %>
-                <tr>
-                    <td><%= play.title %></td>
-                    <td><%= role.character_name %></td>
-                    <td><%= theatre.name %> <i class="fa fa-angle-right"></i></td>
-                    <td><%= theatre.city %></td>
-                </tr>
-                <% end %>
+            <table id="resumeview">
+                <%= render partial: 'resume', locals: { jobs: @jobs } %>
             </table>
         </div>
     </div>
