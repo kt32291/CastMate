@@ -38,7 +38,7 @@
         <div ng-controller="PlaysController" class="role">
             <h2><i class="fa fa-plus-circle"></i> Add a Role</h2>
             <div class="role_add">
-                <%= form_for(@job, remote: true) do |j| %>
+                <%= form_for(@job, remote: true, html: {class: "roleform"}) do |j| %>
                 <ul>
                     <li>
                         <fieldset>
@@ -97,7 +97,19 @@
                     <li>
                         <fieldset>
                             <legend>City</legend>
-                            <input type="text"></input>
+                            <div class="angu">
+                                <angucomplete
+                                        id="cities"
+                                        placeholder="Cities"
+                                        pause="400"
+                                        selectedobject="selectedTheatre"
+                                        localdata="theatres"
+                                        searchfields="name"
+                                        titlefield="name"
+                                        descriptionfield= "theatre_type"
+                                        minlength="3"
+                                        inputclass="form-control form-control-small"/>
+                            </div>
                         </fieldset>
                     </li>
                 </ul>
@@ -105,8 +117,9 @@
                     <input type="hidden" name="role_id" value="{{selectedRole.originalObject.id}}">
                     <input type="hidden" name="theatre_id" value="{{selectedTheatre.originalObject.id}}">
                 </div>
-                <%= j.submit %>
+                <button type="button"><%= j.submit "Add" %></button>
                 <% end %>
+                <div class="clearfixrole"></div>
             </div>
         </div>
         <div class="resume_list">

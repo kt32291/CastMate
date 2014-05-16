@@ -80,7 +80,7 @@
     }
     .role {
       margin-top: 60px;
-      border-bottom: 1px solid lightgray;
+      // border-bottom: 1px solid lightgray;
       h2 {
         cursor: pointer;
         i {
@@ -92,7 +92,7 @@
       }
       .role_add {
         display: none;
-        margin-bottom: 20px;
+        margin-bottom: 8px;
         ul {
           margin: 0px;
           padding-left: 0px;
@@ -121,20 +121,22 @@
                 margin-left: 10px;
                 font-size: 10pt;
               }
-              input {
+              input[type="text"] {
                 width: 92%;
                 font-size: 10pt;
                 border: none;
                 border-width: 0;
                 outline-width: 0;
                 margin-left: 5px;
-                margin-bottom: 5px;              }
+                margin-bottom: 5px;
+              }
             }
           }
         }
       }
     }
     .resume_list {
+      border-top: 1px solid lightgray;
       margin-top: 15px;
       table {
         width: 100%;
@@ -164,6 +166,28 @@
       }
     }
   }
+}
+
+.roleform {
+  button {
+    margin-top: 8px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+    float: right;
+    background: $light_blue;
+    border: none;
+    border-radius: 5px;
+    input[type="submit"] {
+      font-size: 12pt;
+      background: none;
+      border: none;
+      border-width: 0;
+    }
+  }
+}
+
+.clearfixrole {
+  clear: both;
 }
 
 
