@@ -8,8 +8,35 @@ class JobsController < ApplicationController
     @actor = User.find_by(params[:id])
     @jobs = @actor.jobs.order(:created_at)
     @job = Job.new
-    @job.role_id = params[:role_id]
-    @job.theatre_id = params[:theatre_id]
+
+    # if params[:play_id] == nil
+    #   play = Play.find_or_create_by(title: params[:plays_value])
+    #   play.update_attributes(publix: false)
+
+    #     Role.find_or_create_by(character_name: params[:roles_value]) do |role|
+    #       role.play_id = play.id
+    #       role.publix = false
+    #     end
+
+    # else
+
+    #   if params[:role_id] == nil
+    #     Role.find_or_create_by(character_name: params[:roles_value]) do |role|
+    #       role.play_id = params[:play_id]
+    #       @job.role_id = role.id
+    #     end
+    #   end
+
+    # end
+
+
+
+    role_name = params[:character_name]
+    role = Role.find_by(character_name: role_name)
+    @job.role_id = role.id
+    theatre_name = params[:theatre_name]
+    theatre = Theatre.find_by(name: theatre_name)
+    @job.theatre_id = theatre.id
     @job.user_id = current_user.id
 
     respond_to do |format|
@@ -29,7 +56,7 @@ class JobsController < ApplicationController
   private
 
     def todo_params
-      params.require(:job).permit(:role_id, :theatre_id, :user_id)
+      params.require(:job).permit(:role_id, :theatre_id, :user_id, :theatre_name, :character_name)
     end
 
 end

@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'nokogiri'
 
+gem 'jquery-ui-rails'
+
 gem 'angularjs-rails'
 
 gem 'devise'

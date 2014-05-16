@@ -3,7 +3,7 @@ class TheatresController < ApplicationController
 
   def index
     @theatres = Theatre.order(:name).where("name like ?", "%#{params[:term]}%")
-    render json: @theatres.map()
+    render json: @theatres.map(&:name)
   end
 
   def create

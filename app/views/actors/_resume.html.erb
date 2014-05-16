@@ -1,3 +1,4 @@
+              <% jobs = jobs.order(:created_at).reverse %>
               <% jobs.each do |job| %>
               <% role = job.role %>
               <% play = role.play %>

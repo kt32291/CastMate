@@ -3,7 +3,7 @@ class RolesController < ApplicationController
 
   def index
     @roles = Role.order(:character_name).where("character_name like ?", "%#{params[:term]}%")
-    render json: @roles.map()
+    render json: @roles.map(&:character_name)
   end
 
   def create

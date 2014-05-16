@@ -1,9 +1,10 @@
 RoleFinder::Application.routes.draw do
 
   devise_for :users
-  get 'json_plays' => 'plays#index'
-  get 'json_roles' => 'roles#index'
-  get 'json_theatres' => 'theatres#index'
+  get 'plays/json' => 'plays#index'
+  get 'roles/json' => 'roles#index'
+  get 'theatres/json' => 'theatres#index'
+
 
   resources :actors, only: [:show]
   resources :jobs

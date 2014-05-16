@@ -97,31 +97,26 @@
           margin: 0px;
           padding-left: 0px;
           li {
+            @include columnify(4.5);
+            margin-right: 0px;
+            margin-bottom: 5px;
             &:nth-of-type(1) {
-              width: 28%;
-            }
-            &:nth-of-type(2) {
-              width: 20%;
+              margin-right: 15px;
             }
             &:nth-of-type(3) {
-              width: 38%;
-            }
-            &:nth-of-type(4) {
-              width: 12.5%;
+              margin-right: 15px;
             }
             display: inline-block;
             fieldset {
               border: 1px solid lightgray;
-              margin-right: 3px;
+              // margin-right: 3px;
               padding: 0px;
-              &:nth-of-type(4) {
-                margin-right: 0px;
-              }
               legend {
+                margin-right: 0px;
                 margin-left: 10px;
                 font-size: 10pt;
               }
-              input[type="text"] {
+              input {
                 width: 92%;
                 font-size: 10pt;
                 border: none;
@@ -178,12 +173,22 @@
     border: none;
     border-radius: 5px;
     input[type="submit"] {
-      font-size: 12pt;
+      font-size: 10pt;
       background: none;
       border: none;
       border-width: 0;
     }
   }
+}
+
+#ui-id-1 {
+  top: 472px !important;
+  left: 247px !important;
+  border-radius: none;
+}
+
+#ui-id-2 {
+  top: 472px !important;
 }
 
 .clearfixrole {

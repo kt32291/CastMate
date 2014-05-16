@@ -2,7 +2,7 @@ app.controller('PlaysController', ['$scope', '$http',
   function PlaysController($scope, $http) {
     $scope.plays = [];
 
-    $http.get('/json_plays').success(function (data) {
+    $http.get('/plays.json').success(function (data) {
             $scope.plays = data;
          })
          .error(function (data, status, headers, config) {
@@ -11,7 +11,7 @@ app.controller('PlaysController', ['$scope', '$http',
 
     $scope.roles = [];
 
-    $http.get('/json_roles').success(function (data) {
+    $http.get('/roles.json').success(function (data) {
             $scope.roles = data;
          })
          .error(function (data, status, headers, config) {
@@ -20,7 +20,7 @@ app.controller('PlaysController', ['$scope', '$http',
 
     $scope.theatres = [];
 
-    $http.get('/json_theatres').success(function (data) {
+    $http.get('/theatres.json').success(function (data) {
             $scope.theatres = data;
          })
          .error(function (data, status, headers, config) {

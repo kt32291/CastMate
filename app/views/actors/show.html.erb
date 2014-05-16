@@ -6,6 +6,7 @@
     <div class="resume">
 
 
+
         <div class="first">
             <h1><%= @actor.first_name %> <%= @actor.last_name %><p><i class="fa fa-pencil-square-o"></i> Edit Profile</p></h1>
             <div class="contact">
@@ -43,81 +44,32 @@
                     <li>
                         <fieldset>
                             <legend>Show</legend>
-                            <div class="angu">
-                                <angucomplete
-                                        id="plays"
-                                        placeholder="Search shows"
-                                        pause="100"
-                                        selectedobject="selectedPlay"
-                                        localdata="plays"
-                                        searchfields="title"
-                                        titlefield="title"
-                                        descriptionfield="type_of_show"
-                                        minlength="3"
-                                        inputclass="form-control form-control-small"/>
-                            </div>
+                            <input id="playsauto" name="character_name" type="text" placeholder="Search shows">
                         </fieldset>
                     </li>
                     <li>
                         <fieldset>
                             <legend>Role</legend>
-                            <div class="angu">
-                                <angucomplete
-                                        id="roles"
-                                        placeholder="Search roles"
-                                        pause="400"
-                                        selectedobject="selectedRole"
-                                        localdata="roles"
-                                        searchfields="character_name"
-                                        titlefield="character_name"
-                                        descriptionfield= "play_id"
-                                        minlength="4"
-                                        inputclass="form-control form-control-small"/>
-                            </div>
+                            <input id="rolesauto" name="character_name" type="text" placeholder="Search roles">
+                            <!--  <input id="rolesauto"> -->
+                            <!-- <input type="hidden" id="rolesauto-id"> -->
                         </fieldset>
                     </li>
                     <li>
                         <fieldset>
                             <legend>Theatre</legend>
-                            <div class="angu">
-                                <angucomplete
-                                        id="theatres"
-                                        placeholder="Search theatres"
-                                        pause="400"
-                                        selectedobject="selectedTheatre"
-                                        localdata="theatres"
-                                        searchfields="name"
-                                        titlefield="name"
-                                        descriptionfield= "theatre_type"
-                                        minlength="3"
-                                        inputclass="form-control form-control-small"/>
-                            </div>
+                            <input id="theatresauto" name="theatre_name" type="text" placeholder="Search theatres">
                         </fieldset>
                     </li>
                     <li>
                         <fieldset>
                             <legend>City</legend>
-                            <div class="angu">
-                                <angucomplete
-                                        id="cities"
-                                        placeholder="Cities"
-                                        pause="400"
-                                        selectedobject="selectedTheatre"
-                                        localdata="theatres"
-                                        searchfields="name"
-                                        titlefield="name"
-                                        descriptionfield= "theatre_type"
-                                        minlength="3"
-                                        inputclass="form-control form-control-small"/>
-                            </div>
+                            <input id="citiesauto">
                         </fieldset>
                     </li>
                 </ul>
-                <div class="boop" ng-show="selectedRole">
-                    <input type="hidden" name="role_id" value="{{selectedRole.originalObject.id}}">
-                    <input type="hidden" name="theatre_id" value="{{selectedTheatre.originalObject.id}}">
-                </div>
-                <button type="button"><%= j.submit "Add" %></button>
+
+                <button type="button"><%= j.submit "Add to Resume" %></button>
                 <% end %>
                 <div class="clearfixrole"></div>
             </div>
@@ -129,3 +81,5 @@
         </div>
     </div>
 </div>
+
+
