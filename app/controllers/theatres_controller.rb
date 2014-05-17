@@ -6,6 +6,11 @@ class TheatresController < ApplicationController
     render json: @theatres.map(&:name)
   end
 
+  def full_index
+    @theatres = Theatre.order(:name).where(name: params[:term])
+    render json: @theatres.map()
+  end
+
   def create
     @theatre = Theatre.new(theatre_params)
     @theatre.save

@@ -1,4 +1,4 @@
-$('#resumeview').html("<%= j render partial: '/actors/resume', locals: { jobs: @jobs } %>");
+$('#resumeview').html("<%= j render partial: '/actors/resume', locals: { jobs: @jobs } %>").fadeIn("slow");
 $('input#rolesauto').val('');
 $('input#theatresauto').val('');
 $('input#playsauto').val('');

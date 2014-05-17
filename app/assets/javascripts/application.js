@@ -37,11 +37,21 @@ $(function() {
         source: "/roles/json",
         minLength: 3,
         select: function( event, ui ) {
-          var selected = $( "#rolesauto" ).val();
+          var selected = ui.item.value;
           console.log(selected);
-      }
-
-        // select: function( event, ui ) {}
+          $("#rolesauto").val('selected');
+          $.get( "/roles/full_json?term=" + selected )
+            .done(function( data ) {
+              play_id = data[0].play_id;
+              console.log(play_id);
+              $.get( "/plays/full_json?term=" + play_id )
+                .done(function( data ) {
+                  play_title = data[0].title;
+                  console.log(play_title);
+                  $("#playsauto").val(play_title);
+                });
+            });
+        }
     });
 
     // $( "#rolesauto" ).autocomplete({
@@ -66,7 +76,17 @@ $(function() {
 
     $( "#theatresauto" ).autocomplete({
         source: "/theatres/json",
-        minLength: 3
+        minLength: 3,
+        select: function( event, ui ) {
+          var selected = ui.item.value;
+          console.log(selected);
+          $.get( "/theatres/full_json?term=" + selected )
+            .done(function( data ) {
+              theatre_city = data[0].city;
+              console.log(theatre_city);
+              $('#citiesauto').val(theatre_city)
+            });
+        }
     });
 
 });

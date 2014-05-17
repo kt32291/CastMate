@@ -6,6 +6,11 @@ class RolesController < ApplicationController
     render json: @roles.map(&:character_name)
   end
 
+  def full_index
+    @roles = Role.order(:character_name).where("character_name like ?", "%#{params[:term]}%")
+    render json: @roles.map()
+  end
+
   def create
     @role = Role.new(role_params)
     @role.save

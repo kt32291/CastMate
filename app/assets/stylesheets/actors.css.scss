@@ -28,6 +28,7 @@
         display: inline;
         margin-left: 15px;
         font-size: 14pt;
+        color: black;
         font-weight: normal;
         text-transform: none;
       }
@@ -36,6 +37,7 @@
       float: left;
       font-size: 28pt;
       line-height: normal;
+      color: $green;
       padding: 0px;
       text-transform: uppercase;
       font-weight: lighter;
@@ -56,8 +58,8 @@
         border: none;
         td {
           text-align: right;
-          font-size: 13pt;
-          line-height: 30px;
+          font-size: 12pt;
+          line-height: 25px;
           &:nth-of-type(1) {
             font-weight: bold;
             text-align: left;
@@ -79,7 +81,7 @@
       }
     }
     .role {
-      margin-top: 60px;
+      margin-top: 30px;
       // border-bottom: 1px solid lightgray;
       h2 {
         cursor: pointer;
@@ -174,21 +176,27 @@
     border-radius: 5px;
     input[type="submit"] {
       font-size: 10pt;
+      cursor: pointer;
       background: none;
       border: none;
       border-width: 0;
+    }
+    &:hover {
+      background: $dark_blue;
+      input[type="submit"] {
+        color: white;
+      }
     }
   }
 }
 
 #ui-id-1 {
-  top: 472px !important;
-  left: 247px !important;
-  border-radius: none;
+  top: 442px !important;
+  // left: 247px !important;
 }
 
 #ui-id-2 {
-  top: 472px !important;
+  top: 442px !important;
 }
 
 .clearfixrole {

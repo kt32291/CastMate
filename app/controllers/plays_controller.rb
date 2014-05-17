@@ -6,6 +6,11 @@ class PlaysController < ApplicationController
     render json: @plays.map(&:title)
   end
 
+  def full_index
+    @plays = Play.order(:title).where(id: params[:term])
+    render json: @plays.map()
+  end
+
   def show
     @roles = @play.roles
   end

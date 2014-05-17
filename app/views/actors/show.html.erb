@@ -43,16 +43,16 @@
                 <ul>
                     <li>
                         <fieldset>
-                            <legend>Show</legend>
-                            <input id="playsauto" name="character_name" type="text" placeholder="Search shows">
-                        </fieldset>
-                    </li>
-                    <li>
-                        <fieldset>
                             <legend>Role</legend>
                             <input id="rolesauto" name="character_name" type="text" placeholder="Search roles">
                             <!--  <input id="rolesauto"> -->
                             <!-- <input type="hidden" id="rolesauto-id"> -->
+                        </fieldset>
+                    </li>
+                    <li>
+                        <fieldset>
+                            <legend>Show</legend>
+                            <input id="playsauto" name="play_name" type="text" placeholder="Search shows">
                         </fieldset>
                     </li>
                     <li>
@@ -64,12 +64,12 @@
                     <li>
                         <fieldset>
                             <legend>City</legend>
-                            <input id="citiesauto">
+                            <input id="citiesauto" placeholder="citiesautos">
                         </fieldset>
                     </li>
                 </ul>
 
-                <button type="button"><%= j.submit "Add to Resume" %></button>
+                <button type="button"><%= j.submit "✔︎ Add to Resume" %></button>
                 <% end %>
                 <div class="clearfixrole"></div>
             </div>
