@@ -1,0 +1,95 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "library";
+
+@mixin background-image($name) {
+  $url: $name;
+  background: url($url);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0px auto;
+    display: block;
+    position: relative;
+    text-align: center;
+    top: 0px;
+    z-index: -50;
+    max-height: 60%;
+    max-width: 80%;
+}
+
+p.notice, p.alert {
+  display: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+
+.marketing_home {
+  @include background-image('background2.png');
+
+  height: 100%;
+  h1 {
+    margin: 0px;
+    font-size: 32pt;
+    padding-top: 95px;
+    color: $dark_blue;
+    font-weight: lighter;
+    span {
+      font-weight: normal;
+    }
+  }
+  h2 {
+    text-transform: uppercase;
+    font-weight: lighter;
+    font-size: 16pt;
+    margin-top: 20px;
+    span {
+      // color: $green;
+      font-weight: bold;
+    }
+  }
+}
+
+
+.marketing_content {
+  padding-top: 40px;
+  width: 960px;
+  margin: 0px auto;
+  text-align: center;
+  p.homedesc {
+    // width: 700px;
+    padding-left: 90px;
+    padding-right: 90px;
+    font-size: 16pt;
+    line-height: 30px;
+    font-weight: lighter;
+    margin: 0px auto;
+    border-left: 3px solid lightgray;
+    border-right: 3px solid lightgray;
+    span {
+      font-weight: normal;
+    }
+  }
+  p.cta {
+    font-size: 14pt;
+  }
+  button {
+    background: $light_blue;
+    border: none;
+    font-size: 11pt;
+    letter-spacing: 2px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+}

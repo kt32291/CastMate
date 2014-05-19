@@ -1,12 +1,15 @@
 RoleFinder::Application.routes.draw do
 
   devise_for :users
+  root 'pages#marketing_home'
   get 'plays/json' => 'plays#index'
   get 'roles/json' => 'roles#index'
   get 'theatres/json' => 'theatres#index'
   get 'roles/full_json' => 'roles#full_index'
   get 'plays/full_json' => 'plays#full_index'
   get 'theatres/full_json' => 'theatres#full_index'
+  get 'plays/json_all' => 'plays#all_index'
+  get 'roles/json_for_plays' => 'roles#index_for_plays'
 
 
   resources :actors, only: [:show]

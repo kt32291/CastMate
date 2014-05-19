@@ -13,15 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
+//= require jquery.formToWizard
+//= require jquery.validationEngine
 //= require angular
-//= require ngTextcomplete
-//= require angucomplete
 //= require ./client/app
 //= require_tree ./client/
 //= require turbolinks
 //=# require_tree .
 
 $(function() {
+
 
     $('.role h2').click(function () {
       $('.role_add').slideToggle();
@@ -30,8 +31,25 @@ $(function() {
 
     $( "#playsauto" ).autocomplete({
         source: "/plays/json",
-        minLength: 3
+        minLength: 3,
+        // select: function( event, ui ) {
+        //   var selected = ui.item.value;
+        //   console.log(selected);
+        //   $("#playsauto").val('selected');
+        //   $.get( "/plays/json_all?term=" + selected )
+        //     .done(function( data ) {
+        //       play_id = data[0].id;
+        //       console.log(play_id);
+        //       $( "#rolesauto" ).autocomplete({
+        //           source: "/roles/json_for_plays?id=" + play_id,
+        //           minLength: 3,
+        //         });
+        //     });
+        // }
     });
+
+
+
 
     $( "#rolesauto" ).autocomplete({
         source: "/roles/json",
@@ -52,26 +70,15 @@ $(function() {
                 });
             });
         }
-    });
+    })
+    .data( "autocomplete" )._renderItem = function( ul, item ) {
+      return $( "<li></li>" )
+        .data( "item.autocomplete", item )
+        .append( item.character_name + item.play_id )
+        .appendTo( ul );
+    };
 
-    // $( "#rolesauto" ).autocomplete({
-    //   minLength: 3,
-    //   source: "/roles/json",
-    //   focus: function( event, ui ) {
-    //     $( "#rolesauto" ).val( ui.item.character_name );
-    //     return false;
-    //   },
-      // select: function( event, ui ) {
-      //   $( "#rolesauto" ).val( ui.item.character_name );
-      //   $( "#rolesauto-id" ).val( ui.item.id );
-      //   return false;
-      // }
-    // })
-    // .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-    //   return $( "<li>" )
-    //     .append( "<a>" + item.character_name + "<br>" + item.play_id + "</a>" )
-    //     .appendTo( ul );
-    // };
+
 
 
     $( "#theatresauto" ).autocomplete({
