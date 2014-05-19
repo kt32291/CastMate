@@ -29,7 +29,7 @@
           font-size: 10pt;
           padding-right: 15px;
         }
-        input {
+        input[type="text"], input[type="password"], input[type="email"], input[type="number"] {
           height: 25px;
           line-height: 18px;
           width: 250px;
@@ -38,6 +38,9 @@
           outline-width: 0px;
           border: 1px solid lightgray;
           border-radius: 5px;
+          &.active_input {
+            background: black;
+          }
         }
       }
     }

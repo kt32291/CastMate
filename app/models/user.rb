@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :jobs
   has_many :roles, through: :jobs
 
+  mount_uploader :headshot, HeadshotUploader
+
   def star
     equity_star = 'fa-star'
     emc_star = 'fa-star-half-o'
