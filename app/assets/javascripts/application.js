@@ -13,9 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
-//= require jquery.formToWizard
-//= require jquery.validationEngine
 //= require angular
+//= require angucomplete.js
 //= require ./client/app
 //= require_tree ./client/
 //= require turbolinks
@@ -31,24 +30,61 @@ $(function() {
 
     $( "#playsauto" ).autocomplete({
         source: "/plays/json",
-        minLength: 3,
-        // select: function( event, ui ) {
-        //   var selected = ui.item.value;
-        //   console.log(selected);
-        //   $("#playsauto").val('selected');
-        //   $.get( "/plays/json_all?term=" + selected )
-        //     .done(function( data ) {
-        //       play_id = data[0].id;
-        //       console.log(play_id);
-        //       $( "#rolesauto" ).autocomplete({
-        //           source: "/roles/json_for_plays?id=" + play_id,
-        //           minLength: 3,
-        //         });
-        //     });
-        // }
+        minLength: 3
     });
 
 
+    // $( "#rolesauto" ).keypress(function () {
+    //   first_auto = $("#ui-id-2 li a").first().html()
+    //   if(first_auto != undefined) {
+    //     // console.log(first_auto);
+    //     $("#ui-id-2 a").each(function () {
+    //       returned = $(this).text();
+    //       $.get( "/roles/full_json?term=" + returned )
+    //         .done(function( data ) {
+    //           play_id = data[0].play_id;
+    //           $.get( "/plays/full_json?term=" + play_id )
+    //             .done(function( data ) {
+    //               play_title = data[0].title;
+    //               console.log(returned);
+    //               console.log(play_title);
+
+    //               // $(this).html().append("<span>" play_title "</span>");
+    //             });
+    //         });
+    //     });
+    //   }
+    // });
+
+    // var find_play = function( role ) {
+    //   console.log(role);
+    //   $.get( "/roles/full_json?term=" + role )
+    //     .done(function( data ) {
+    //       return data;
+    //       $play_number = data[0].play_id;
+    //       // return $play_number;
+    //       $.get( "/plays/full_json?term=" + play_number )
+    //         .done(function( data ) {
+    //           var play_name = data[0].title;
+    //           // return play_name;
+    //       });
+    //     });
+    //   };
+
+    // find_play("elphaba");
+
+    // function find_play(role) {
+    //     $.get("/roles/full_json?term=" + role, function( data ) {
+    //       console.log(data);
+    //     });
+    //   };
+    //   // var find_play = function( role ) {
+    //     // return role;
+    //     // return data;
+    //   // };
+
+    // var elphaba = find_play("elphaba");
+    // return elphaba;
 
 
     $( "#rolesauto" ).autocomplete({
@@ -71,19 +107,22 @@ $(function() {
             });
         }
     })
-    .data( "autocomplete" )._renderItem = function( ul, item ) {
-      return $( "<li></li>" )
-        .data( "item.autocomplete", item )
-        .append( item.character_name + item.play_id )
-        .appendTo( ul );
-    };
+  .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+    name = item.value
+    console.log(name);
+    // play = $.get( "/roles/full_json?term=" + name ).done(function( data ) { return data; });
+    // console.log(play);
+    return $( "<li>" )
+      .append( "<a>" + item.label + "<br>" + item.value + "</a>" )
+      .appendTo( ul );
+  };
 
 
 
 
     $( "#theatresauto" ).autocomplete({
         source: "/theatres/json",
-        minLength: 3,
+        minLength: 1,
         select: function( event, ui ) {
           var selected = ui.item.value;
           console.log(selected);
@@ -91,7 +130,7 @@ $(function() {
             .done(function( data ) {
               theatre_city = data[0].city;
               console.log(theatre_city);
-              $('#citiesauto').val(theatre_city)
+              $('#citiesauto').val(theatre_city);
             });
         }
     });

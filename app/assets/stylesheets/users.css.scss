@@ -2,19 +2,44 @@
 
 
 .signup {
-  h2 {
+  .signuphead {
     float: left;
     margin-top: 0px;
-    font-size: 24pt;
+    font-size: 18pt;
+    width: 250px;
+    h3 {
+      font-size: 12pt;
+      font-weight: normal;
+      margin-bottom: 310px;
+    }
+    p {
+      font-size: 10pt;
+      a {
+        color: $green;
+        font-weight: bold;
+        &:hover {
+          color: black;
+        }
+      }
+      span {
+        font-weight: bold;
+        color: $green;
+        &:hover {
+          color: black;
+        }
+      }
+    }
   }
   background: rgba(0,0,0,0.015);
   padding: 20px 30px;
-  width: 600px;
+  width: 800px;
   margin: 20px auto;
   border-radius: 5px;
   table {
     width: inherit;
     margin: 0px auto;
+    text-align: right;
+    margin-right: 20px;
     tr {
       width: inherit;
       line-height: 35px;
@@ -24,6 +49,7 @@
         &:nth-of-type(2n) {
           text-align: left;
         }
+
         label {
           text-transform: uppercase;
           font-size: 10pt;
@@ -42,7 +68,22 @@
             background: black;
           }
         }
+
       }
+    }
+
+  }
+  .signbutton {
+    text-align: right;
+    margin-right: 20px;
+    margin-top: 15px;
+    input {
+      background: none;
+      border: none;
+      font-weight: bold;
+      font-size: 14pt;
+      color: $green;
+      cursor: pointer;
     }
 
   }
