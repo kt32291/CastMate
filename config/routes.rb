@@ -13,7 +13,7 @@ RoleFinder::Application.routes.draw do
   get 'actors/search' => 'actors#search'
 
 
-  resources :actors, only: [:show]
+  resources :actors, only: [:show, :index]
   resources :jobs
   resources :plays, only: [:show, :index, :create, :update, :destroy]
   resources :roles, only: [:index, :create, :update, :destroy]

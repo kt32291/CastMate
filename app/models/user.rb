@@ -22,4 +22,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  # def self.search(search)
+
+  #   if search
+  #     if Role.find_by(id: search)
+  #       where(self.roles.where(id: search))
+  #     end
+  #   end
+
+  # end
+
 end

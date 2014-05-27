@@ -1,0 +1,44 @@
+<div class="wrap2">
+    <h1>Search for Actors by Show and Role:</h1>
+    <div class="search2">
+      <%= form_tag actors_path, :method => 'get' do %>
+      <fieldset>
+          <legend>Role or Show</legend>
+          <%= text_field_tag :search, params[:search] %>
+      </fieldset>
+      <%= submit_tag "Search", :name => nil %>
+      <% end %>
+    </div>
+
+    <div class="filter">
+        <ul>
+            <li>Filter By <i class="fa fa-angle-right"></i></li>
+            <li>
+                <ul>
+                    <li>All</li>
+                    <li>Equity</li>
+                    <li>Equity + EMC</li>
+                    <li>Non-Equity</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <table>
+      <% @actors.each do |actor| %>
+        <tr>
+            <td><%= image_tag "katiethumbnail.jpg" %></td>
+            <td class="name"><%= link_to actor.first_name + " " + actor.last_name, actor_path(actor) %></td>
+            <td><i class='fa <%= actor.star %>'></i><%= actor.equity %></td>
+            <td><%= actor.height %></td>
+            <td><%= actor.weight %></td>
+            <% if params[:search] %>
+            <td class="view"><%= @role.character_name %></td>
+            <% else %>
+            <td></td>
+            <% end %>
+        </tr>
+        <% end %>
+    </table>
+</div>
+
