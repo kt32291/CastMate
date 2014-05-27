@@ -1,68 +1,106 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="signup">
 
-<% @user == current_user %>
+<div class="signuphead">
+  <h2>Edit</h2>
+
+  <% @user == current_user %>
+
+  <h3>Edit your profile here.<br /><br /> Looking to <span>add roles</span> to your resume? You can do that from your <%= link_to "main profile page", actor_path(@user) %></span></h3>
+
+<div class="extralinks">
+  <h4>Cancel my account</h4>
+  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "delete_account" %></p>
+</div>
+</div>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<table>
+  <tr>
+    <td><%= f.label :email %></td>
+    <td><%= f.email_field :email %></td>
+  </tr>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+  <tr>
+    <td><%= f.label :password %></td>
+    <td><%= f.password_field :password, :autocomplete => "off", :placeholder => "Leave these two blank unless..." %></td>
+  </tr>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+  <tr>
+    <td><%= f.label :password_confirmation %></td>
+    <td><%= f.password_field :password_confirmation, :placeholder => "...you wish to change your password :)" %></td>
+  </tr>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <tr>
+    <td><%= f.label :current_password %></td>
+    <td><%= f.password_field :current_password, :placeholder => "We need this to make sure it's you out there" %></td>
+  </tr>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+  <tr>
+    <td><%= f.label :first_name %></td>
+    <td><%= f.text_field :first_name %></td>
+  </tr>
 
-  <div><%= f.label :first_name %><br />
-  <%= f.text_field :first_name %></div>
-
-  <div><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></div>
+  <tr>
+    <td><%= f.label :last_name %></td>
+    <td><%= f.text_field :last_name %></td>
 
   <% equity = ["Non-Equity", "Equity", "EMC"] %>
-  <div><%= f.label :equity %><br />
-  <%= f.select :equity, equity, @user.equity %></div>
+  <tr>
+    <td><%= f.label :equity %></td>
+    <td><%= f.select :equity, options_for_select(equity, @user.equity) %></td>
+  </tr>
 
   <% gender = ["Female", "Male"] %>
-  <div><%= f.label :gender %><br />
-  <%= f.select :gender, gender, @user.gender %></div>
+  <tr>
+    <td><%= f.label :gender %></td>
+    <td><%= f.select :gender, options_for_select(gender, @user.gender) %></td>
+  </tr>
 
-  <div><%= f.label :height %><br />
-  <%= f.number_field :height %></div>
+  <tr>
+    <td><%= f.label :height %></td>
+    <td><%= f.number_field :height %></td>
+  </tr>
 
-  <div><%= f.label :weight %><br />
-  <%= f.number_field :weight %></div>
+  <tr>
+    <td><%= f.label :weight %></td>
+    <td><%= f.number_field :weight %></td>
+  </tr>
 
   <% hair = ["Brown", "Blonde", "Dirty Blonde", "Red", "Black", "Grey"] %>
-  <div><%= f.label :hair %><br />
-  <%= f.select :hair, hair, @user.hair %></div>
+  <tr>
+    <td><%= f.label :hair %></td>
+    <td><%= f.select :hair, options_for_select(hair, @user.hair) %></td>
+  </tr>
 
   <% eyes = ["Blue", "Brown", "Hazel", "Green", "Grey"] %>
-  <div><%= f.label :eyes %><br />
-  <%= f.select :eyes, eyes, @user.eyes %></div>
+  <tr>
+    <td><%= f.label :eyes %></td>
+    <td><%= f.select :eyes, options_for_select(eyes, @user.eyes) %></td>
+  </tr>
 
-  <div><%= f.label :vocal_range %><br />
-  <%= f.text_field :vocal_range %></div>
+  <tr>
+    <td><%= f.label :vocal_range %></td>
+    <td><%= f.text_field :vocal_range %></td>
+  </tr>
 
-  <div><%= f.label :headshot %><br />
-  <%= f.text_field :headshot %></div>
+  <tr>
+    <td><%= f.label :headshot %></td>
+    <td><%= f.file_field :headshot %></td>
+  </tr>
 
-  <div><%= f.label :resume %><br />
-  <%= f.text_field :resume %></div>
+  <tr>
+    <td><%= f.label :resume %></td>
+    <td><%= f.file_field :resume %></td>
+  </tr>
 
-  <div><%= f.submit "Update" %></div>
+</table>
+
+  <div class="signbutton"><%= f.submit "Update >" %></div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

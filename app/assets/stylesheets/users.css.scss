@@ -11,12 +11,22 @@
       font-size: 12pt;
       font-weight: normal;
       margin-bottom: 310px;
+      span {
+        font-weight: bold;
+      }
+      a {
+        font-weight: bold;
+        color: $green;
+      }
     }
     p {
       font-size: 10pt;
       a {
         color: $green;
         font-weight: bold;
+        &.delete_account {
+          color: red;
+        }
         &:hover {
           color: black;
         }
@@ -67,6 +77,10 @@
           &.active_input {
             background: black;
           }
+        }
+        i {
+          font-size: 10pt;
+          line-height: 10px;
         }
 
       }
