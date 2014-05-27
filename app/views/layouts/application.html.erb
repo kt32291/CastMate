@@ -15,7 +15,7 @@
     <ul class="main">
         <li id="title"><span>CastMate</span></li>
         <li>About</li>
-        <li >Actor Search</li>
+        <li><%= link_to "Actor Search", actors_path %></li>
     </ul>
     <ul class="log">
       <% if user_signed_in? %>
@@ -29,7 +29,7 @@
     <% @user = current_user %>
         <ul class="logged_in">
           <li><%= image_tag @user.headshot.thumb.url %></li>
-          <li>Hello, <span><%= link_to @user.first_name, edit_user_registration_path(@user) %></span></li>
+          <li>Hello, <span><%= link_to @user.first_name, actor_path(@user) %></span></li>
         </ul>
     <% end %>
   </div>

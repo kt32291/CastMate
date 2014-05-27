@@ -27,15 +27,15 @@
     <table>
       <% @actors.each do |actor| %>
         <tr>
-            <td><%= image_tag "katiethumbnail.jpg" %></td>
+            <td><%= image_tag actor.headshot.thumb.url %></td>
             <td class="name"><%= link_to actor.first_name + " " + actor.last_name, actor_path(actor) %></td>
             <td><i class='fa <%= actor.star %>'></i><%= actor.equity %></td>
             <td><%= actor.height %></td>
-            <td><%= actor.weight %></td>
+            <td><%= actor.weight %> lbs</td>
             <% if params[:search] %>
             <td class="view"><%= @role.character_name %></td>
             <% else %>
-            <td></td>
+            <td><%= actor.roles.last.character_name %></td>
             <% end %>
         </tr>
         <% end %>
