@@ -4,4 +4,8 @@ class ActorsController < ApplicationController
     @jobs = @actor.jobs.order(:created_at)
     @job = Job.new
   end
+
+  def search
+
+  end
 end

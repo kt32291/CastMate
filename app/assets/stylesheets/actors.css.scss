@@ -208,8 +208,146 @@
   font-size: 14pt;
 }
 
+.role_show {
+  font-size: 10pt;
+  text-transform: uppercase;
+  padding-left: 15px;
+}
 
 .clearfix {
   content: "";
   height: 100px;
+}
+
+.wrap2 {
+    width: 910px;
+    margin: 0px auto;
+    margin-top: 30px;
+    background:white;
+    table {
+        width: inherit;
+        td {
+            &:nth-of-type(6) {
+                text-align: right;
+                width: 22%;
+            }
+        }
+    }
+    table {
+    width: 675px;
+    tr {
+        line-height: 65px;
+        border-bottom: 1px solid lightgray;
+        td {
+            text-align: left;
+            line-height: 65px;
+            &:nth-of-type(5) {
+                text-align: right;
+            }
+            img {
+                line-height: 65px;
+                vertical-align: middle;
+                height: 55px;
+                border-radius: 45px;
+            }
+            &.name {
+                font-weight: bold;
+                color: $dark_blue;
+                &:hover {
+                    color: gray;
+                }
+            }
+            &.view {
+                font-weight: bold;
+                color: black;
+            }
+        }
+    }
+}
+    .search2 {
+        width: 100%;
+        ul {
+            li {
+                display: inline-block;
+                width: 453px;
+                padding-right: 10px;
+                &:nth-of-type(2) {
+                    padding-right: 0px;
+                }
+
+                fieldset {
+                    display: inline-block;
+                    width: 100%;
+                    // width: inherit;
+                    border: 1px solid lightgray;
+                    legend {
+                        margin-left: 15px;
+                        font-size: 10pt;
+                        font-weight: bold;
+                    }
+                    input {
+                        width: 98%;
+                        font-size: 14pt;
+                        border: none;
+                        border-width: 0;
+                        outline-width: 0;
+                        margin-left: 5px;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+    .filter {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background: $light_blue;
+        border: none;
+        border-radius: 5px;
+        height: 35px;
+        ul {
+            line-height: 35px;
+            vertical-align: middle;
+            margin-left: 5px;
+            font-size: 0px;
+            li {
+                display: inline-block;
+                padding: 0px 15px;
+                margin: 0px;
+                font-size: 16px;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: white;
+                &:nth-of-type(1) {
+                    text-transform: none;
+                    color: black;
+                }
+                &:nth-of-type(3) {
+                    text-transform: none;
+                    color: black;
+                }
+                ul {
+                    margin-left: 0px;
+                    padding-left: 0px;
+                    li {
+                        &:nth-of-type(1) {
+                            text-transform: uppercase;
+                            font-weight: bold;
+                            color: white;
+                            padding-left: 0px;
+                        }
+                        &:nth-of-type(3) {
+                            text-transform: uppercase;
+                            font-weight: bold;
+                            color: white;
+                        }
+                        &:hover {
+                            color: $dark_blue;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
 }

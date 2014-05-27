@@ -113,7 +113,7 @@ $(function() {
     // play = $.get( "/roles/full_json?term=" + name ).done(function( data ) { return data; });
     // console.log(play);
     return $( "<li>" )
-      .append( "<a>" + item.label + "<br>" + item.value + "</a>" )
+      .append( "<a>" + item.label + "<br><span class='role_show'>" + item.show + "</span></a>" )
       .appendTo( ul );
   };
 
