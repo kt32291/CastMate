@@ -1,16 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RoleFinder</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Comfortaa:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
 <div class="marketing_home">
-  <h1>Easily connect with the <span>perfect actors</span> for your next show</h1>
-  <h2>Have a great season with <span>CastMate</span></h2>
+  <div class="banner">
+    <%= link_to '<i class="fa fa-sign-in"></i>'.html_safe, new_user_session_path %>
+<h1>Bring life to the stage with <span>CastMate</span></h1>
 
+<h2>We makes it easier for theatre companies to receive actor submissions online</h2>
+<h3>post auditions - receieve submissions - search and sort - create callsheets</h3>
+
+<button class="landing">I'm an actor</button>
+<button class="landing">I have a theatre company</button>
 </div>
-
-<div class="marketing_content">
-  <p class="homedesc">With Castmate, actor materials are stored <span>all in one place</span>, making it easier to find exactly who you want to see. You save time, and there's no dealing with paper resumes or individual files.</p>
-<br />
-<p class="cta">
-Start finding actors who fit the bill faster, and contact them directly.</p>
-
-<button>Learn How It Works</button>
 </div>
+</body>
+
+</html>
 
 

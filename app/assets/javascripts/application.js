@@ -22,7 +22,6 @@
 
 $(function() {
 
-
     $('.role h2').click(function () {
       $('.role_add').slideToggle();
       $('.fa-plus-circle').toggleClass("fa-chevron-circle-up");
