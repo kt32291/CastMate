@@ -22,6 +22,26 @@
 
 $(function() {
 
+    $('.landing.actor').click(function () {
+      $('.landing').hide();
+      $('.actor_intro').slideDown('slow');
+    });
+
+    $('.landing.theatre').click(function () {
+      $('.landing').hide();
+      $('.theatre_intro').slideDown('slow');
+    });
+
+    $('.theatre_intro i.fa-times-circle').click(function () {
+      $('.theatre_intro').hide();
+      $('.landing').fadeIn();
+    });
+
+    $('.actor_intro i.fa-times-circle').click(function () {
+      $('.actor_intro').hide();
+      $('.landing').fadeIn();
+    });
+
     $('.role h2').click(function () {
       $('.role_add').slideToggle();
       $('.fa-plus-circle').toggleClass("fa-chevron-circle-up");

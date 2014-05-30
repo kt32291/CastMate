@@ -16,7 +16,7 @@
     position: relative;
     text-align: center;
     top: 0px;
-    z-index: -50;
+    // z-index: -50;
     max-height: 100%;
     max-width: 100%;
 }
@@ -79,19 +79,61 @@ body {
     font-weight: lighter;
     font-size: 11pt;
   }
-  button {
-    background: none;
-    margin-top: 100px;
-    outline-width: 0;
-    border: none;
-    font-size: 14pt;
-    border: 1px solid white;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    &:hover {
-      background: white;
-      color: black;
+  ul {
+    padding-left: 0px;
+    font-size: 16pt;
+    li.landing {
+      margin-top: 100px;
+      z-index: 500;
+      display: inline-block;
+      border: 1px solid white;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      &:nth-of-type(1) {
+        margin-right: 10px;
+      }
+      &:hover {
+        background: lightgreen;
+        color: black;
+        border-color: lightgreen;
+        cursor: pointer;
+      }
+    }
+    li.theatre_intro, li.actor_intro {
+      line-height: 30px;
+      display: none;
+      color: lightgreen;
+      width: 600px;
+      text-align: center;
+      padding: 0px;
+      margin: 30px auto;
+      margin-bottom: 0px;
+      list-style-type: none;
+      font-weight: lighter;
+      i {
+        cursor: pointer;
+      }
+      &.email {
+        width: 350px;
+        border: 1px solid white;
+        margin-top: 15px;
+        i {
+          cursor: normal;
+          float: none;
+          color: white;
+          padding-left: 0px;
+        }
+      }
+      input {
+        padding: 5px;
+        width: 300px;
+        font-size: 16pt;
+        background: none;
+        border: none;
+        outline-width: 0;
+        color: white;
+      }
     }
   }
 }

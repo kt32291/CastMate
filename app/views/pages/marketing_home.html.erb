@@ -20,8 +20,15 @@
 <h2>We makes it easier for theatre companies to receive actor submissions online</h2>
 <h3>post auditions - receieve submissions - search and sort - create callsheets</h3>
 
-<button class="landing">I'm an actor</button>
-<button class="landing">I have a theatre company</button>
+<ul>
+<li class="landing actor">I'm an actor</li>
+<li class="landing theatre">I have a theatre company</li>
+<li class="actor_intro"><i class="fa fa-times-circle"></i><br />As an actor, once you sign up you are able to simply submit for any of the auditions listed with a single click. To be the first to know when auditions are posted, enter your email below.</li>
+<li class="actor_intro email"><span><i class="fa fa-envelope-o"></i></span><%= text_field_tag :actor_email %></li>
+<li class="theatre_intro"><i class="fa fa-times-circle"></i><br />As a theatre company, you can post auditions and receive your submissions in a sortable list, adding anyone you are interested in to your call sheet. Wanna know when we're up and running? Give us your email.</li>
+<li class="theatre_intro email"><span><i class="fa fa-envelope-o"></i></span><%= text_field_tag :theatre_email %></li>
+</ul>
+
 </div>
 </div>
 </body>
