@@ -1,4 +1,6 @@
 class ActorsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @actor = User.find_by(id: params[:id])
     @jobs = @actor.jobs.order(:created_at)

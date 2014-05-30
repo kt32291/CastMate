@@ -1,4 +1,5 @@
 class PlaysController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_play, only: [:show, :update, :destroy]
 
   def index

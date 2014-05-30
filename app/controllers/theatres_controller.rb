@@ -1,4 +1,5 @@
 class TheatresController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_theatre, only: [:update, :destroy]
 
   def index
