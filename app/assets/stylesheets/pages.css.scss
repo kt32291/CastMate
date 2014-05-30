@@ -6,7 +6,7 @@
 
 @mixin background-image($name) {
   $url: $name;
-  background: url($url);
+  background: image-url($url);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
