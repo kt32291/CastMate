@@ -1,0 +1,35 @@
+<div class="all_auditions">
+
+<h1>Auditions</h1>
+  <div class="sidebar">
+    <h2>MEEP</h2>
+  </div>
+<% @auditions.each do |audition| %>
+  <div class="one_audition">
+    <h2><%= audition.play.title %></h2>
+    <ul>
+      <li><%= audition.theatre.name %></li>
+      <li><%= audition.equity %></li>
+      <li><%= audition.play.type_of_show %></li>
+      <li>
+        <% if user_signed_in? %>
+          <%= form_for(@submission) do |f| %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :audition_id, :value => audition.id %>
+            <%= f.submit '✔︎ Submit', :confirm => "Submit for this audition?" %>
+          <% end %>
+        <% else %>
+          <button type="button"><%= link_to '✔︎ Submit'.html_safe, new_user_session_path %></button>
+        <% end %>
+      </li>
+    </ul>
+    <div class="description">
+      <p><%= audition.audition_start.strftime("%A, %b %e") %> - <%= audition.audition_end.strftime("%A, %b %e") %></p>
+      <p class="text"><%= audition.description %></p>
+    </div>
+  </div>
+<% end %>
+
+</div>
+
+<%= link_to 'New Audition', new_audition_path %>

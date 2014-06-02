@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507060025) do
+ActiveRecord::Schema.define(version: 20140602155528) do
+
+  create_table "auditions", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "theatre_id"
+    t.boolean  "equity"
+    t.date     "audition_start"
+    t.date     "audition_end"
+    t.integer  "play_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "jobs", force: true do |t|
     t.integer  "role_id"
@@ -37,6 +49,13 @@ ActiveRecord::Schema.define(version: 20140507060025) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "publix"
+  end
+
+  create_table "submissions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "audition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "theatres", force: true do |t|

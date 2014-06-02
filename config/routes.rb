@@ -1,5 +1,7 @@
 RoleFinder::Application.routes.draw do
 
+  resources :auditions
+
   devise_for :users
   root 'pages#marketing_home'
   get 'plays/json' => 'plays#index'
@@ -15,6 +17,7 @@ RoleFinder::Application.routes.draw do
 
   resources :actors, only: [:show, :index]
   resources :jobs
+  resources :submissions, only: [:create, :index, :destroy]
   resources :plays, only: [:show, :index, :create, :update, :destroy]
   resources :roles, only: [:index, :create, :update, :destroy]
   resources :theatres, only: [:index, :create, :update, :destroy]

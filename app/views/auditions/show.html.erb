@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @audition.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @audition.description %>
+</p>
+
+<p>
+  <strong>Theatre:</strong>
+  <%= @audition.theatre_id %>
+</p>
+
+<p>
+  <strong>Equity:</strong>
+  <%= @audition.equity %>
+</p>
+
+<p>
+  <strong>Audition start:</strong>
+  <%= @audition.audition_start %>
+</p>
+
+<p>
+  <strong>Audition end:</strong>
+  <%= @audition.audition_end %>
+</p>
+
+<p>
+  <strong>Play:</strong>
+  <%= @audition.play_id %>
+</p>
+
+<%= link_to 'Edit', edit_audition_path(@audition) %> |
+<%= link_to 'Back', auditions_path %>

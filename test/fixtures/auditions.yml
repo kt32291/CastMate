@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  theatre_id: 1
+  equity: false
+  audition_start: 2014-06-02
+  audition_end: 2014-06-02
+  play_id: 1
+
+two:
+  name: MyString
+  description: MyText
+  theatre_id: 1
+  equity: false
+  audition_start: 2014-06-02
+  audition_end: 2014-06-02
+  play_id: 1
