@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
+//= require jQuery.succinct.min
 //= require angular
 //= require angucomplete.js
 //= require ./client/app
@@ -40,6 +41,10 @@ $(function() {
     $('.actor_intro i.fa-times-circle').click(function () {
       $('.actor_intro').hide();
       $('.landing').fadeIn();
+    });
+
+    $('span.text').succinct({
+      size: 150
     });
 
     $('.role h2').click(function () {

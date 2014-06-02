@@ -2,14 +2,14 @@
 
 <h1>Auditions</h1>
   <div class="sidebar">
-    <h2>MEEP</h2>
+    <p>These are the current active auditions. As an actor, you can submit by clicking the button on this list, or by using the button on the audition's individual page.<br /><br />If you are a theatre company and want to post an audition, <span>click here.</span></p>
   </div>
 <% @auditions.each do |audition| %>
   <div class="one_audition">
     <h2><%= audition.play.title %></h2>
     <ul>
       <li><%= audition.theatre.name %></li>
-      <li><%= audition.equity %></li>
+      <li><i class='fa <%= audition.star %>'></i> <%= audition.equity_type %></li>
       <li><%= audition.play.type_of_show %></li>
       <li>
         <% if user_signed_in? %>
@@ -24,12 +24,13 @@
       </li>
     </ul>
     <div class="description">
-      <p><%= audition.audition_start.strftime("%A, %b %e") %> - <%= audition.audition_end.strftime("%A, %b %e") %></p>
-      <p class="text"><%= audition.description %></p>
+      <% start_day = audition.audition_start.strftime("%e").to_i %>
+      <% end_day = audition.audition_end.strftime("%e").to_i %>
+      <p><%= audition.audition_start.strftime("%A, %b") %> <%= start_day.ordinalize %> - <%= audition.audition_end.strftime("%A, %b") %> <%= end_day.ordinalize %></p>
+      <p><span class="text"><%= audition.description %></span> <%= link_to "(Read more?)", audition_path(audition) %></p>
     </div>
   </div>
 <% end %>
-
 </div>
 
-<%= link_to 'New Audition', new_audition_path %>
+

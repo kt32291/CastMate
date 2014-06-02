@@ -7,34 +7,79 @@
 .all_auditions {
   width: 960px;
   margin: 0px auto;
-}
-
-.one_audition {
-  width: inherit;
+  height: 100%;
+  h1 {
+    margin-top: 50px;
+    font-size: 30pt;
+  }
   .sidebar {
     @include columnify(3);
     float: left;
+    border-right: 1px solid lightgray;
+    margin-right: 19px;
+    height: 100%;
+    p {
+      padding-right: 20px;
+      line-height: 25px;
+      font-weight: lighter;
+      span {
+        font-weight: bold;
+        color: $green;
+        &:hover {
+          color: black;
+        }
+      }
+    }
   }
+}
+
+.one_audition {
+  @include columnify(9);
+  float: right;
+  margin-right: 0px;
+  margin-bottom: 25px;
   h2 {
-    @include columnify(9);
-    float: left;
     text-transform: uppercase;
     font-size: 14pt;
-    border-bottom: 1px solid lightgray;
     margin-bottom: 0px;
-  }
-  ul {
-    @include columnify(3);
-    float: left;
-    list-style-type: none;
-    padding-left: 0px;
   }
   .description {
     @include columnify(6);
-    float: left;
+    float: right;
     margin-right: 0px;
     .text {
       font-weight: lighter;
     }
+    a {
+      font-size: 10pt;
+      color: $green;
+      &:hover {
+        color: black;
+      }
+    }
+  }
+  ul {
+    @include columnify(3);
+    float: left;
+    text-align: right;
+    list-style-type: none;
+    padding-left: 0px;
+    li {
+      padding-right: 10px;
+      padding-bottom: 5px;
+      &:nth-of-type(1) {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      input[type='submit'] {
+        background: none;
+        border: none;
+        font-size: 11pt;
+        background: lightgray;
+        border-radius: 5px;
+      }
+    }
   }
 }
+
+
