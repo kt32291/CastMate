@@ -13,10 +13,14 @@
       <li><%= audition.play.type_of_show %></li>
       <li>
         <% if user_signed_in? %>
-          <%= form_for(@submission) do |f| %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.hidden_field :audition_id, :value => audition.id %>
-            <%= f.submit '✔︎ Submit', :confirm => "Submit for this audition?" %>
+          <% if Submission.where(audition_id: audition.id).find_by(user_id: current_user.id) %>
+            <button type="button">Submitted!</button>
+          <% else %>
+            <%= form_for(@submission) do |f| %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.hidden_field :audition_id, :value => audition.id %>
+              <%= f.submit '✔︎ Submit', :confirm => "Submit for this audition?" %>
+            <% end %>
           <% end %>
         <% else %>
           <button type="button"><%= link_to '✔︎ Submit'.html_safe, new_user_session_path %></button>
