@@ -28,6 +28,7 @@
           <button type="button"><%= link_to '✔︎ Submit'.html_safe, new_user_session_path %></button>
         <% end %>
       </div>
+      <button type="button"><%= link_to "Submissions", "/submissions/#{@audition.id}" %></button>
   </div>
     <div class="breakdown">
       <h3>Roles:</h3>

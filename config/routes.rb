@@ -14,11 +14,12 @@ RoleFinder::Application.routes.draw do
   get 'roles/json_for_plays' => 'roles#index_for_plays'
   get 'actors/search' => 'actors#search'
   get 'roles/json_search' => 'roles#search_index'
+  get 'submissions/:audition_id' => 'submissions#index'
 
 
   resources :actors, only: [:show, :index]
   resources :jobs
-  resources :submissions, only: [:create, :index, :destroy]
+  resources :submissions, only: [:create, :destroy]
   resources :plays, only: [:show, :index, :create, :update, :destroy]
   resources :roles, only: [:index, :create, :update, :destroy]
   resources :theatres, only: [:index, :create, :update, :destroy]

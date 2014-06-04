@@ -19,7 +19,13 @@ class SubmissionsController < ApplicationController
   def index
     @audition = Audition.find_by(id: params[:audition_id])
     @submissions = @audition.submissions
-    @actors = @audition.actors
+    if params[:search]
+      @role = Role.find_by(id: params[:search])
+      submitted_actors = @audition.users
+      @actors = submitted_actors.includes(:roles).where(roles: { id: params[:search] })
+    else
+      @actors = @audition.users.order(:last_name)
+    end
   end
 
   def destroy
