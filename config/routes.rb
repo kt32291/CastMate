@@ -13,6 +13,7 @@ RoleFinder::Application.routes.draw do
   get 'plays/json_all' => 'plays#all_index'
   get 'roles/json_for_plays' => 'roles#index_for_plays'
   get 'actors/search' => 'actors#search'
+  get 'roles/json_search' => 'roles#search_index'
 
 
   resources :actors, only: [:show, :index]

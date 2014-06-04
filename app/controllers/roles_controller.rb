@@ -12,6 +12,16 @@ class RolesController < ApplicationController
     render json: @roles_with_shows.map()
   end
 
+  def search_index
+    @roles = Role.order(:character_name).where("character_name like ?", "%#{params[:term]}%")
+    @roles_with_shows = []
+    @roles.each do |role|
+      hash = { label: role.character_name, value: role.id, show: Play.find_by(id: role.play_id).title }
+      @roles_with_shows.push(hash)
+    end
+    render json: @roles_with_shows.map()
+  end
+
   def full_index
     @roles = Role.order(:character_name).where("character_name like ?", "%#{params[:term]}%")
     render json: @roles.map()
