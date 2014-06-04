@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :auditions, through: :submissions
 
   mount_uploader :headshot, HeadshotUploader
+  mount_uploader :resume, ResumeUploader
 
   def star
     equity_star = 'fa-star'
