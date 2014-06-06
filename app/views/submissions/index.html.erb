@@ -1,5 +1,7 @@
 <div class="wrap2">
     <h1>Search submissions for <span><%= @audition.play.title %></span></h1>
+    <button class="type">By Type</button>
+    <button class="role">By Role</button>
     <div class="search1">
       <%= form_tag "/submissions/#{@audition.id}", :method => 'get' do %>
         <% gender = ["All", "Female", "Male"] %>
@@ -27,19 +29,6 @@
       <% end %>
     </div>
 
-    <div class="filter">
-        <ul>
-            <li>Filter By <i class="fa fa-angle-right"></i></li>
-            <li>
-                <ul>
-                    <li>All</li>
-                    <li>Equity</li>
-                    <li>Equity + EMC</li>
-                    <li>Non-Equity</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
 
     <table>
       <% @actors.each do |actor| %>
