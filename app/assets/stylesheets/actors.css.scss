@@ -18,6 +18,12 @@
     h2 {
       font-size: 14pt;
     }
+    p {
+      font-weight: lighter;
+      span {
+        font-weight: bold;
+      }
+    }
   }
   .resume {
     @include columnify(9, true);

@@ -39,12 +39,20 @@
     <td><%= f.text_field :last_name %></td>
   </tr>
 
-
+  <tr>
+    <td><%= f.label :phone %></td>
+    <td><%= f.telephone_field :phone %></td>
+  </tr>
 
   <% equity = ["Non-Equity", "Equity", "EMC"] %>
   <tr>
     <td><%= f.label :equity %></td>
     <td><%= f.select :equity, equity %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label :agency %></td>
+    <td><%= f.text_field :agency %></td>
   </tr>
 
   <% gender = ["Female", "Male"] %>
@@ -53,6 +61,11 @@
     <td><%= f.select :gender, gender %></td>
   </tr>
 
+  <% age_range = ["Infant", "Toddler", "Child", "Teenager", "Young Adult", "25-35 yrs", "35-50 yrs", "50-65 yrs", "65-80 yrs"] %>
+  <tr>
+    <td><%= f.label :age_range %></td>
+    <td><%= f.select :age_range, age_range %></td>
+  </tr>
 
     <tr>
       <td><%= f.label :height %></td>
@@ -64,16 +77,10 @@
       <td><%= f.number_field :weight %></td>
     </tr>
 
-  <% hair = ["Brown", "Blonde", "Dirty Blonde", "Red", "Black", "Grey"] %>
+    <% ethnic_appearance = ["Caucasian", "African American", "Hispanic", "Asian", "South Asian", "Native American", "Middle Eastern", "Southeast Asia / Pacific Islander", "Ethnically Ambiguous / Mixed Race", "African Descent" ] %>
     <tr>
-      <td><%= f.label :hair %></td>
-      <td><%= f.select :hair, hair %></td>
-    </tr>
-
-  <% eyes = ["Blue", "Brown", "Hazel", "Green", "Grey"] %>
-    <tr>
-      <td><%= f.label :eyes %></td>
-      <td><%= f.select :eyes, eyes %></td>
+      <td><%= f.label :ethnic_appearance %></td>
+      <td><%= f.select :ethnic_appearance, ethnic_appearance %></td>
     </tr>
 
     <tr>
@@ -90,6 +97,12 @@
       <td><%= f.label :resume %></td>
       <td><%= f.file_field :resume %></td>
     </tr>
+
+    <tr>
+      <td><%= f.label :special_skills %></td>
+      <td><%= f.text_field :special_skills %></td>
+    </tr>
+
   </table>
 
   <div class="signbutton"><%= f.submit "Sign up >" %></div>

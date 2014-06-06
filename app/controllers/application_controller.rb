@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
 
   def config_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :equity, :gender, :height, :weight, :hair, :eyes, :vocal_range, :headshot, :resume, :theatre_id]
-    devise_parameter_sanitizer.for(:account_update) << [:first_name, :last_name, :equity, :gender, :height, :weight, :hair, :eyes, :vocal_range, :headshot, :resume, :theatre_id]
+    devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :equity, :gender, :height, :weight, :hair, :eyes, :vocal_range, :headshot, :resume, :theatre_id, :ethnic_appearance, :agency, :phone, :special_skills, :age_range]
+    devise_parameter_sanitizer.for(:account_update) << [:first_name, :last_name, :equity, :gender, :height, :weight, :hair, :eyes, :vocal_range, :headshot, :resume, :theatre_id, :ethnic_appearance, :agency, :phone, :special_skills, :age_range]
   end
 end

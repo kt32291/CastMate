@@ -1,18 +1,23 @@
 <div class="actorwrap">
     <div class="headshot">
         <%= image_tag @actor.headshot %>
+        <p><span>Special Skills</span><br /><%= @actor.special_skills %></p>
     </div>
     <div class="resume">
 
 
 
         <div class="first">
-            <h1><%= @actor.first_name %> <%= @actor.last_name %><p><%= link_to "<i class='fa fa-pencil-square-o'></i> Edit Profile".html_safe, edit_user_registration_path(@actor) %></p></h1>
+            <h1><%= @actor.first_name %> <%= @actor.last_name %>
+                <% if user_signed_in? && current_user.id == @actor.id %>
+                <p><%= link_to "<i class='fa fa-pencil-square-o'></i> Edit Profile".html_safe, edit_user_registration_path(@actor) %></p>
+                <% end %>
+            </h1>
             <div class="contact">
                 <ul>
-                    <li>Grey Talent</li>
+                    <li><%= @actor.agency %></li>
                     <li><%= @actor.email %></li>
-                    <li>(386) 801-5016</li>
+                    <li><%= number_to_phone(@actor.phone) %></li>
                 </ul>
             </div>
             <table class="stats">
@@ -35,6 +40,7 @@
 
 
         <div class="clearfix"></div>
+        <% if user_signed_in? && current_user.id == @actor.id %>
         <div class="role">
             <h2><i class="fa fa-plus-circle"></i> Add a Role</h2>
             <div class="role_add">
@@ -73,6 +79,7 @@
                 <div class="clearfixrole"></div>
             </div>
         </div>
+        <% end %>
         <div class="resume_list">
             <table id="resumeview">
                 <%= render partial: 'resume', locals: { jobs: @jobs } %>

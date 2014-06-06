@@ -97,7 +97,9 @@
   .audition_info {
     @include columnify(4);
     float: left;
+    margin-right: 18px;
     background: rgba(0,0,0,0.015);
+    border: 1px solid lightgray;
     border-radius: 5px;
     div {
       input[type='submit'] {

@@ -1,5 +1,22 @@
 <div class="wrap2">
     <h1>Search submissions for <span><%= @audition.play.title %></span></h1>
+    <div class="search1">
+      <%= form_tag "/submissions/#{@audition.id}", :method => 'get' do %>
+        <% gender = ["All", "Female", "Male"] %>
+        <%= label_tag :gender %>
+        <%= select_tag :gender, options_for_select(gender) %>
+        <% equity = ["All", "Non-Equity", "Equity", "EMC"] %>
+        <%= label_tag :equity %>
+        <%= select_tag :equity, options_for_select(equity) %>
+        <% age_range = ["All", "Infant", "Toddler", "Child", "Teenager", "Young Adult", "25-35 yrs", "35-50 yrs", "50-65 yrs", "65-80 yrs"] %>
+        <%= label_tag :age_range %>
+        <%= select_tag :age_range, options_for_select(age_range) %>
+        <% ethnic_appearance = ["All", "Caucasian", "African American", "Hispanic", "Asian", "South Asian", "Native American", "Middle Eastern", "Southeast Asia / Pacific Islander", "Ethnically Ambiguous / Mixed Race", "African Descent" ] %>
+        <%= label_tag :ethnic_appearance %>
+        <%= select_tag :ethnic_appearance, options_for_select(ethnic_appearance) %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+    </div>
     <div class="search2">
       <%= form_tag "/submissions/#{@audition.id}", :method => 'get' do %>
       <fieldset>

@@ -11,6 +11,7 @@ class AuditionsController < ApplicationController
   # GET /auditions/1
   # GET /auditions/1.json
   def show
+    @submission = Submission.new
   end
 
   # GET /auditions/new

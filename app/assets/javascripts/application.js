@@ -53,19 +53,19 @@ $(function() {
     });
 
 
-    $("input#search").autocomplete({
-      source: "/roles/json_search",
-      minLength: 3,
-    })
-      .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-      value = item.value
-      console.log(value);
-    // play = $.get( "/roles/full_json?term=" + name ).done(function( data ) { return data; });
-    // console.log(play);
-      return $( "<li>" )
-      .append( "<a>" + item.label + "<br><span class='role_show'>" + item.show + "</span></a>" )
-      .appendTo( ul );
-  };
+  //   $("input#search").autocomplete({
+  //     source: "/roles/json_search",
+  //     minLength: 3,
+  //   })
+  //     .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+  //     value = item.value
+  //     console.log(value);
+  //   // play = $.get( "/roles/full_json?term=" + name ).done(function( data ) { return data; });
+  //   // console.log(play);
+  //     return $( "<li>" )
+  //     .append( "<a>" + item.label + "<br><span class='role_show'>" + item.show + "</span></a>" )
+  //     .appendTo( ul );
+  // };
 
 
     $( "#playsauto" ).autocomplete({

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602155528) do
+ActiveRecord::Schema.define(version: 20140605185528) do
 
   create_table "auditions", force: true do |t|
     t.string   "name"
@@ -92,6 +92,11 @@ ActiveRecord::Schema.define(version: 20140602155528) do
     t.string   "resume"
     t.string   "theatre"
     t.integer  "theatre_id"
+    t.string   "ethnic_appearance"
+    t.string   "agency"
+    t.string   "phone"
+    t.text     "special_skills"
+    t.string   "age_range"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

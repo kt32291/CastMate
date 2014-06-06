@@ -48,6 +48,12 @@
   <tr>
     <td><%= f.label :last_name %></td>
     <td><%= f.text_field :last_name %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label :phone %></td>
+    <td><%= f.telephone_field :phone %></td>
+  </tr>
 
   <% equity = ["Non-Equity", "Equity", "EMC"] %>
   <tr>
@@ -55,10 +61,21 @@
     <td><%= f.select :equity, options_for_select(equity, @user.equity) %></td>
   </tr>
 
+  <tr>
+    <td><%= f.label :agency %></td>
+    <td><%= f.text_field :agency %></td>
+  </tr>
+
   <% gender = ["Female", "Male"] %>
   <tr>
     <td><%= f.label :gender %></td>
     <td><%= f.select :gender, options_for_select(gender, @user.gender) %></td>
+  </tr>
+
+  <% age_range = ["Infant", "Toddler", "Child", "Teenager", "Young Adult", "25-35 yrs", "35-50 yrs", "50-65 yrs", "65-80 yrs"] %>
+  <tr>
+    <td><%= f.label :age_range %></td>
+    <td><%= f.select :age_range, options_for_select(age_range, @user.age_range) %></td>
   </tr>
 
   <tr>
@@ -71,16 +88,10 @@
     <td><%= f.number_field :weight %></td>
   </tr>
 
-  <% hair = ["Brown", "Blonde", "Dirty Blonde", "Red", "Black", "Grey"] %>
+  <% ethnic_appearance = ["Caucasian", "African American", "Hispanic", "Asian", "South Asian", "Native American", "Middle Eastern", "Southeast Asia / Pacific Islander", "Ethnically Ambiguous / Mixed Race", "African Descent" ] %>
   <tr>
-    <td><%= f.label :hair %></td>
-    <td><%= f.select :hair, options_for_select(hair, @user.hair) %></td>
-  </tr>
-
-  <% eyes = ["Blue", "Brown", "Hazel", "Green", "Grey"] %>
-  <tr>
-    <td><%= f.label :eyes %></td>
-    <td><%= f.select :eyes, options_for_select(eyes, @user.eyes) %></td>
+    <td><%= f.label :ethnic_appearance %></td>
+    <td><%= f.select :ethnic_appearance, options_for_select(ethnic_appearance, @user.ethnic_appearance) %></td>
   </tr>
 
   <tr>
@@ -96,6 +107,11 @@
   <tr>
     <td><%= f.label :resume %></td>
     <td><%= f.file_field :resume %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label :special_skills %></td>
+    <td><%= f.text_field :special_skills %></td>
   </tr>
 
 </table>
