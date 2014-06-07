@@ -23,9 +23,9 @@ class SubmissionsController < ApplicationController
       @role = Role.find_by(id: params[:search])
       submitted_actors = @audition.users
       @actors = submitted_actors.includes(:roles).where(roles: { id: params[:search] })
-    elsif params[:gender] || params[:ethnic_appearance] || params[:age_range] || params[:equity]
+    elsif params[:gender] || params[:ethnic_appearance] || params[:age_range] || params[:equity] || params[:special_skills]
       submitted_actors = @audition.users
-      @actors = submitted_actors.where({gender: params[:gender], ethnic_appearance: params[:ethnic_appearance], age_range: params[:age_range], equity: params[:equity]}).all
+      @actors = submitted_actors.where({gender: params[:gender], ethnic_appearance: params[:ethnic_appearance], age_range: params[:age_range], equity: params[:equity]}).where("special_skills like ?", "%#{params[:special_skills]}%")
     else
       @actors = @audition.users.order(:last_name)
     end

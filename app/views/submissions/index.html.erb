@@ -1,49 +1,43 @@
 <div class="wrap2">
-    <h1>Search submissions for <span><%= @audition.play.title %></span></h1>
-    <button class="type">By Type</button>
-    <button class="role">By Role</button>
+<!--     <h1><span><%= @audition.play.title %></span> Submissions</h1> -->
+    <h1><span>A Little Night Music</span> Submissions</h1>
+    <button class="type">Filter actors by type</button>
+    <button class="role">Filter actors by role</button>
     <div class="search1">
       <%= form_tag "/submissions/#{@audition.id}", :method => 'get' do %>
-        <% gender = ["All", "Female", "Male"] %>
-        <%= label_tag :gender %>
+        <% gender = ["", "Female", "Male"] %>
         <%= select_tag :gender, options_for_select(gender) %>
-        <% equity = ["All", "Non-Equity", "Equity", "EMC"] %>
-        <%= label_tag :equity %>
+        <% equity = ["", "Non-Equity", "Equity", "EMC"] %>
         <%= select_tag :equity, options_for_select(equity) %>
-        <% age_range = ["All", "Infant", "Toddler", "Child", "Teenager", "Young Adult", "25-35 yrs", "35-50 yrs", "50-65 yrs", "65-80 yrs"] %>
-        <%= label_tag :age_range %>
+        <% age_range = ["", "Infant", "Toddler", "Child", "Teenager", "Young Adult", "25-35 yrs", "35-50 yrs", "50-65 yrs", "65-80 yrs"] %>
         <%= select_tag :age_range, options_for_select(age_range) %>
-        <% ethnic_appearance = ["All", "Caucasian", "African American", "Hispanic", "Asian", "South Asian", "Native American", "Middle Eastern", "Southeast Asia / Pacific Islander", "Ethnically Ambiguous / Mixed Race", "African Descent" ] %>
-        <%= label_tag :ethnic_appearance %>
+        <% ethnic_appearance = ["", "Caucasian", "African American", "Hispanic", "Asian", "South Asian", "Native American", "Middle Eastern", "Southeast Asia / Pacific Islander", "Ethnically Ambiguous / Mixed Race", "African Descent" ] %>
         <%= select_tag :ethnic_appearance, options_for_select(ethnic_appearance) %>
-        <%= submit_tag "Search", :name => nil %>
+        <%= text_field_tag :special_skills, nil, :placeholder => "Special skills?" %>
+        <%= submit_tag "Search >", :name => nil %>
       <% end %>
     </div>
     <div class="search2">
       <%= form_tag "/submissions/#{@audition.id}", :method => 'get' do %>
-      <fieldset>
-          <legend>Role or Show</legend>
-          <%= text_field_tag :search, params[:search] %>
-      </fieldset>
-      <%= submit_tag "Search", :name => nil %>
+
+          <%= text_field_tag :search, params[:search], :placeholder => "Start typing a role name" %>
+
+      <%= submit_tag "Search >", :name => nil %>
       <% end %>
     </div>
-
-
+    <div class="table_search">
     <table>
       <% @actors.each do |actor| %>
         <tr>
             <td><%= image_tag actor.headshot.thumb.url %></td>
+            <td><i class="fa fa-plus-circle"></i></td>
             <td class="name"><%= link_to actor.first_name + " " + actor.last_name, actor_path(actor) %></td>
             <td><i class='fa <%= actor.star %>'></i><%= actor.equity %></td>
             <td><%= actor.height %></td>
             <td><%= actor.weight %> lbs</td>
-            <% if params[:search] %>
-            <td class="view"><%= @role.character_name %></td>
-            <% else %>
-            <td><%= actor.roles.last.character_name %></td>
-            <% end %>
+            <td><%= actor.special_skills %></td>
         </tr>
         <% end %>
     </table>
+  </div>
 </div>

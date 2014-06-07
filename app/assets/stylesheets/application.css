@@ -12,4 +12,5 @@
  *= require_tree .
  *= require angucomplete
  *= require jquery.ui.all
+ *= require select2
  */

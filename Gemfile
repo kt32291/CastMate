@@ -39,6 +39,8 @@ gem 'mini_magick'
 
 gem 'figaro'
 
+gem 'select2-rails'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

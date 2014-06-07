@@ -183,23 +183,25 @@
 .roleform {
   button {
     margin-top: 8px;
-    margin-right: 5px;
     margin-bottom: 0px;
     float: right;
-    background: $light_blue;
+    padding-right: 0px;
+    background: white;
+    color: $green;
     border: none;
     border-radius: 5px;
     input[type="submit"] {
       font-size: 10pt;
       cursor: pointer;
       background: none;
+      color: $green;
       border: none;
       border-width: 0;
+      outline-width: 0;
     }
     &:hover {
-      background: $dark_blue;
       input[type="submit"] {
-        color: white;
+        color: black;
       }
     }
   }
@@ -211,7 +213,10 @@
 }
 
 #ui-id-2 {
-  // top: 442px !important;
+  top: 425px !important;
+}
+#ui-id-3 {
+  top: 478px !important;
 }
 
 .clearfixrole {
@@ -256,8 +261,12 @@
         td {
             text-align: left;
             line-height: 65px;
-            &:nth-of-type(5) {
-                text-align: right;
+            i.fa-plus-circle {
+              color: lightgray;
+              cursor: pointer;
+              &:hover {
+                color: black;
+              }
             }
             img {
                 line-height: 65px;
@@ -276,11 +285,23 @@
                 font-weight: bold;
                 color: black;
             }
+            &:nth-of-type(5) {
+              text-align: right;
+            }
+            &:nth-of-type(6) {
+              width: 90px;
+            }
+            &:nth-of-type(7) {
+              font-size: 8pt;
+              line-height: 20px;
+              text-align: right;
+            }
         }
     }
 }
     .search2 {
         fieldset {
+          width: 80%;
             border: 1px solid lightgray;
             legend {
                 margin-left: 15px;
@@ -288,13 +309,11 @@
                 font-weight: bold;
             }
             input {
-                width: 98%;
+                width: 90%;
                 font-size: 14pt;
                 border: none;
                 border-width: 0;
                 outline-width: 0;
-                margin-left: 5px;
-                margin-bottom: 5px;
             }
         }
     }

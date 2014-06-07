@@ -76,7 +76,23 @@
         background: none;
         border: none;
         font-size: 11pt;
-        background: lightgray;
+        color: $green;
+        cursor: pointer;
+        outline-width: 0;
+        border: 1px solid $green;
+        border-radius: 5px;
+        &:hover {
+          background: $green;
+          color: white;
+        }
+      }
+      button.submitted {
+        font-size: 11pt;
+        background: none;
+        outline-width: 0;
+        border: none;
+        color: lightgray;
+        border: 1px solid lightgray;
         border-radius: 5px;
       }
     }

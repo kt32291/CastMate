@@ -16,6 +16,7 @@
 //= require jQuery.succinct.min
 //= require angular
 //= require angucomplete.js
+//= require select2
 //= require ./client/app
 //= require_tree ./client/
 //= require turbolinks
@@ -47,25 +48,57 @@ $(function() {
       size: 150
     });
 
+    $('select#gender').select2({
+      placeholder: "Men and Women",
+      allowClear: true,
+      width: "197px",
+      minimumResultsForSearch: -1
+    });
+
+    $('select#equity').select2({
+      placeholder: "Any equity status",
+      allowClear: true,
+      width: "197px",
+      minimumResultsForSearch: -1
+    });
+
+    $('select#age_range').select2({
+      placeholder: "All ages",
+      allowClear: true,
+      width: "197px",
+      minimumResultsForSearch: -1
+    });
+
+    $('select#ethnic_appearance').select2({
+      placeholder: "All looks",
+      allowClear: true,
+      width: "197px",
+      minimumResultsForSearch: -1
+    });
+
     $('.role h2').click(function () {
       $('.role_add').slideToggle();
       $('.fa-plus-circle').toggleClass("fa-chevron-circle-up");
     });
 
+    $('span.text').succinct({
+      size: 150
+    });
 
-  //   $("input#search").autocomplete({
-  //     source: "/roles/json_search",
-  //     minLength: 3,
-  //   })
-  //     .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-  //     value = item.value
-  //     console.log(value);
-  //   // play = $.get( "/roles/full_json?term=" + name ).done(function( data ) { return data; });
-  //   // console.log(play);
-  //     return $( "<li>" )
-  //     .append( "<a>" + item.label + "<br><span class='role_show'>" + item.show + "</span></a>" )
-  //     .appendTo( ul );
-  // };
+//ROLE-FILTER-SEARCH BAM
+    $("input#search").autocomplete({
+      source: "/roles/json_search",
+      minLength: 3,
+    })
+      .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+      value = item.value
+      console.log(value);
+    // play = $.get( "/roles/full_json?term=" + name ).done(function( data ) { return data; });
+    // console.log(play);
+      return $( "<li>" )
+      .append( "<a>" + item.label + "<br><span class='role_show'>" + item.show + "</span></a>" )
+      .appendTo( ul );
+  };
 
 
     $( "#playsauto" ).autocomplete({
@@ -176,14 +209,16 @@ $(function() {
     });
 
     $("button.type").click(function() {
-      console.log("poop");
       $(".search1").slideDown();
       $(".search2").hide();
+      $(this).addClass("active");
+      $("button.role").removeClass("active");
     });
 
     $("button.role").click(function() {
-      console.log("poop");
       $(".search2").slideDown();
       $(".search1").hide();
+      $(this).addClass("active");
+      $("button.type").removeClass("active");
     });
 });

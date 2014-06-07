@@ -14,7 +14,7 @@
       <li>
         <% if user_signed_in? %>
           <% if Submission.where(audition_id: audition.id).find_by(user_id: current_user.id) %>
-            <button type="button">Submitted!</button>
+            <button type="button" class="submitted">Submitted!</button>
           <% else %>
             <%= form_for(@submission) do |f| %>
               <%= f.hidden_field :user_id, :value => current_user.id %>

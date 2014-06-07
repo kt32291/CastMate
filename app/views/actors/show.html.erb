@@ -11,6 +11,8 @@
             <h1><%= @actor.first_name %> <%= @actor.last_name %>
                 <% if user_signed_in? && current_user.id == @actor.id %>
                 <p><%= link_to "<i class='fa fa-pencil-square-o'></i> Edit Profile".html_safe, edit_user_registration_path(@actor) %></p>
+                <% else %>
+                    <p><i class="fa fa-plus-circle"></i> Add to callsheet</p>
                 <% end %>
             </h1>
             <div class="contact">
