@@ -17,6 +17,7 @@ class SubmissionsController < ApplicationController
   end
 
   def index
+    @callsheet = Callsheet.new
     @audition = Audition.find_by(id: params[:audition_id])
     @submissions = @audition.submissions
     if params[:search]

@@ -138,5 +138,26 @@ $green: rgb(63,219,22);
   .table_search {
     border-top: 1px solid lightgrey;
     // margin-top: 20px;
+    table {
+      tr {
+        &:nth-of-type(2n) {
+          display: none;
+          td {
+            line-height: 10px;
+            input[type="text"] {
+              height: 25px;
+              line-height: 18px;
+              background: none;
+              border: none;
+              outline-width: 0;
+              border: 1px solid lightgray;
+              border-radius: 5px;
+              padding-left: 10px;
+              width: 90%;
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605185528) do
+ActiveRecord::Schema.define(version: 20140609170330) do
 
   create_table "auditions", force: true do |t|
     t.string   "name"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 20140605185528) do
     t.date     "audition_start"
     t.date     "audition_end"
     t.integer  "play_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "callsheets", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "audition_id"
+    t.string   "role_name"
+    t.string   "status"
+    t.text     "conflicts"
+    t.text     "notes"
+    t.string   "wave"
+    t.string   "rec_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

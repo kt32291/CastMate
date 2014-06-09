@@ -1,6 +1,5 @@
 <div class="wrap2">
-<!--     <h1><span><%= @audition.play.title %></span> Submissions</h1> -->
-    <h1><span>A Little Night Music</span> Submissions</h1>
+    <h1><span><%= @audition.play.title %></span> Submissions</h1>
     <button class="type">Filter actors by type</button>
     <button class="role">Filter actors by role</button>
     <div class="search1">
@@ -37,6 +36,26 @@
             <td><%= actor.weight %> lbs</td>
             <td><%= actor.special_skills %></td>
         </tr>
+        <%= form_for(@callsheet) do |f| %>
+          <%= f.hidden_field :user_id, :value => actor.id %>
+          <%= f.hidden_field :audition_id, :value => @audition.id %>
+          <% roles = [] %>
+          <% roles.push("") %>
+          <% roles.push("Ensemble") %>
+          <% @audition.play.roles.each do |role| %>
+            <% roles.push(role.character_name) %>
+          <% end %>
+          <% status = ["", "LW", "NAP", "NAA", "SET", "CB1", "CB2", "CB3", "HOLD"] %>
+        <tr class="call_form">
+          <td></td>
+          <td><%= f.submit "✔︎" %></td>
+          <td><%= f.select :role_name, roles, multiple: true %></td>
+          <td><%= f.select :status, status %></td>
+          <td><%= f.text_field :wave %></td>
+          <td><%= f.text_field :conflicts %></td>
+          <td><%= f.text_field :notes %></td>
+        </tr>
+        <% end %>
         <% end %>
     </table>
   </div>

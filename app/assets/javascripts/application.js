@@ -20,7 +20,7 @@
 //= require ./client/app
 //= require_tree ./client/
 //= require turbolinks
-//=# require_tree .
+//= require_tree .
 
 $(function() {
 
@@ -73,6 +73,30 @@ $(function() {
       placeholder: "All looks",
       allowClear: true,
       width: "197px",
+      minimumResultsForSearch: -1
+    });
+
+    $('.table_search i.fa-plus-circle').click(function () {
+      console.log("poop");
+      meep = $(this).parent();
+      derp = meep.parent();
+      slurp = derp.next();
+      leep = slurp.next().next().next();
+      console.log(leep);
+      leep.fadeIn('slow');
+    });
+
+    $('select#callsheet_role_name').select2({
+      placeholder: "Any role",
+      allowClear: true,
+      width: "100%",
+      minimumResultsForSearch: -1
+    });
+
+    $('select#callsheet_status').select2({
+      placeholder: "Status",
+      allowClear: true,
+      width: "100%",
       minimumResultsForSearch: -1
     });
 
