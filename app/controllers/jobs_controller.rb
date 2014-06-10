@@ -32,9 +32,23 @@ class JobsController < ApplicationController
 
 
 
-    role_name = params[:character_name]
-    role = Role.find_by(character_name: role_name)
-    @job.role_id = role.id
+    role_id = params[:character_name]
+
+    if role_id.is_a? Integer
+      @job.role_id = role_id
+    else
+      play = Play.new
+      play.title = params[:play_name]
+      play.publix = false
+      play.save
+      role = Role.new
+      role.play_id = play.id
+      role.character_name = params[:character_name]
+      role.publix = false
+      role.save
+      @job.role_id = role.id
+    end
+
     theatre_name = params[:theatre_name]
     theatre = Theatre.find_by(name: theatre_name)
     @job.theatre_id = theatre.id

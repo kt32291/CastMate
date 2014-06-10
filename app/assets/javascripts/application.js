@@ -110,19 +110,19 @@ $(function() {
     });
 
 //ROLE-FILTER-SEARCH BAM
-    $("input#search").autocomplete({
-      source: "/roles/json_search",
-      minLength: 3,
-    })
-      .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-      value = item.value
-      console.log(value);
-    // play = $.get( "/roles/full_json?term=" + name ).done(function( data ) { return data; });
-    // console.log(play);
-      return $( "<li>" )
-      .append( "<a>" + item.label + "<br><span class='role_show'>" + item.show + "</span></a>" )
-      .appendTo( ul );
-  };
+  //   $("input#search").autocomplete({
+  //     source: "/roles/json_search",
+  //     minLength: 3,
+  //   })
+  //     .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+  //     value = item.value
+  //     console.log(value);
+  //   // play = $.get( "/roles/full_json?term=" + name ).done(function( data ) { return data; });
+  //   // console.log(play);
+  //     return $( "<li>" )
+  //     .append( "<a>" + item.label + "<br><span class='role_show'>" + item.show + "</span></a>" )
+  //     .appendTo( ul );
+  // };
 
 
     $( "#playsauto" ).autocomplete({
@@ -184,35 +184,35 @@ $(function() {
     // return elphaba;
 
 //ROLE SEARCH STUFF YEAH ***************
-  //   $( "#rolesauto" ).autocomplete({
-  //       source: "/roles/json",
-  //       minLength: 3,
-  //       select: function( event, ui ) {
-  //         var selected = ui.item.value;
-  //         console.log(selected);
-  //         $("#rolesauto").val('selected');
-  //         $.get( "/roles/full_json?term=" + selected )
-  //           .done(function( data ) {
-  //             play_id = data[0].play_id;
-  //             console.log(play_id);
-  //             $.get( "/plays/full_json?term=" + play_id )
-  //               .done(function( data ) {
-  //                 play_title = data[0].title;
-  //                 console.log(play_title);
-  //                 $("#playsauto").val(play_title);
-  //               });
-  //           });
-  //       }
-  //   })
-  // .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-  //   name = item.value
-  //   console.log(name);
-  //   // play = $.get( "/roles/full_json?term=" + name ).done(function( data ) { return data; });
-  //   // console.log(play);
-  //   return $( "<li>" )
-  //     .append( "<a>" + item.label + "<br><span class='role_show'>" + item.show + "</span></a>" )
-  //     .appendTo( ul );
-  // };
+    $( "#rolesauto" ).autocomplete({
+        source: "/roles/json_search",
+        minLength: 3,
+        select: function( event, ui ) {
+          var selected = ui.item.value;
+          console.log(selected);
+          // $("#rolesauto").val('selected');
+          $.get( "/roles/full_json?term=" + selected )
+            .done(function( data ) {
+              play_id = data[0].play_id;
+              console.log(play_id);
+              $.get( "/plays/full_json?term=" + play_id )
+                .done(function( data ) {
+                  play_title = data[0].title;
+                  console.log(play_title);
+                  $("#playsauto").val(play_title);
+                });
+            });
+        }
+    })
+  .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+    name = item.value
+    console.log(name);
+    // play = $.get( "/roles/full_json?term=" + name ).done(function( data ) { return data; });
+    // console.log(play);
+    return $( "<li>" )
+      .append( "<a>" + item.label + "<br><span class='role_show'>" + item.show + "</span></a>" )
+      .appendTo( ul );
+  };
 
 
 

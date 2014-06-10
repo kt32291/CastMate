@@ -14,5 +14,9 @@ class Job < ActiveRecord::Base
   # def play_title=(title)
   #   self.play = Play.find_or_create_by_title(title) if title.present?
   # end
+  def is_number?(obj)
+    obj.to_s == obj.to_i.to_s
+  end
+
 
 end

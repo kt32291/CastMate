@@ -3,7 +3,8 @@ class PlaysController < ApplicationController
   before_action :set_play, only: [:show, :update, :destroy]
 
   def index
-    @plays = Play.order(:title).where("title like ?", "%#{params[:term]}%")
+    @public_plays = Play.where(publix: true)
+    @plays = @public_plays.order(:title).where("title like ?", "%#{params[:term]}%")
     render json: @plays.map(&:title)
   end
 
@@ -13,7 +14,8 @@ class PlaysController < ApplicationController
   end
 
   def all_index
-    @plays = Play.order(:title).where(title: params[:term])
+    @public_plays = Play.where(publix: true)
+    @plays = @public_plays.order(:title).where(title: params[:term])
     render json: @plays.map()
   end
 
