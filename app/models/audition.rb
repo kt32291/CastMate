@@ -3,6 +3,7 @@ class Audition < ActiveRecord::Base
   belongs_to :play
   has_many :submissions
   has_many :users, through: :submissions
+  has_many :callsheets
 
   def equity_type
     if self.equity == true

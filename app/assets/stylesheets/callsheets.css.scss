@@ -1,3 +1,36 @@
 // Place all the styles related to the Callsheet controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.call_wrap {
+  width: 960px;
+  margin: 0px auto;
+  h1 {
+    margin-bottom: 5px;
+    span {
+      text-decoration: underline;
+    }
+  }
+  h2 {
+    font-size: 14pt;
+    font-weight: lighter;
+    margin-top: 0px;
+  }
+  table {
+    border-collapse: collapse;
+    margin: 50px auto;
+    tr {
+      background: lightgray;
+      line-height: 30px;
+      td {
+        padding: 0px 20px;
+        a {
+          // color: gray;
+        }
+      }
+      &:nth-of-type(2n) {
+        background: none;
+      }
+    }
+  }
+}

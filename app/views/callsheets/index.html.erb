@@ -1,1 +1,21 @@
-<h1>Meep</h1>
+
+<div class="call_wrap">
+
+<h1><span><%= @audition.play.title %></span> Callsheet</h1>
+<h2><%= @audition.theatre.name %></h2>
+
+  <table>
+    <% @callsheets.each do |call| %>
+    <tr>
+      <td><%= link_to "✖︎", call, method: :delete %></td>
+      <td><%= call.user.first_name %> <%= call.user.last_name %></td>
+      <td><%= call.role_name %></td>
+      <td><%= call.status %></td>
+      <td><%= call.conflicts %></td>
+      <td><%= call.wave %></td>
+      <td><%= call.notes %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+

@@ -37,6 +37,7 @@ class SubmissionsController < ApplicationController
 
   private
 
+
   def submission_params
     params.require(:submission).permit(:user_id, :audition_id)
   end

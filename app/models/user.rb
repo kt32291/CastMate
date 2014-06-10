@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :roles, through: :jobs
   has_many :submissions
   has_many :auditions, through: :submissions
+  has_many :callsheets
 
   mount_uploader :headshot, HeadshotUploader
   mount_uploader :resume, ResumeUploader
