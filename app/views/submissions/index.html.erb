@@ -1,5 +1,5 @@
 <div class="wrap2">
-    <h1><span><%= @audition.play.title %></span> Submissions</h1>
+    <h1><%= link_to "<span>#{@audition.play.title}</span> Submissions".html_safe, "/submissions/#{@audition.id}" %></h1>
     <button class="type">Filter actors by type</button>
     <button class="role">Filter actors by role</button>
     <div class="search1">
